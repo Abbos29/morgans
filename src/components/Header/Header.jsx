@@ -1,16 +1,33 @@
 // import React from 'react'
 import Link from 'next/link'
 import s from './Header.module.scss'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 
 const Header = () => {
 
     const [isMenu, setIsMenu] = useState(false)
+    const menuRef = useRef(null);
+
 
     const menuHandle = () => {
         setIsMenu(!isMenu)
     }
+
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setIsMenu(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+
 
     return (
         <header className={s.header}>
@@ -20,7 +37,7 @@ const Header = () => {
                         <img src="./logo.png" alt="logo" />
                     </Link>
 
-                    <div className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>
+                    <div ref={menuRef} className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>
                         <a className="link" href="">Главная</a>
                         <a className="link" href="">О нас</a>
                         <a className="link" href="">Продукция</a>

@@ -88,6 +88,8 @@
 
 .burger {
     cursor: pointer;
+    position: relative;
+    z-index: 3;
 
     svg {
         width: 28px;

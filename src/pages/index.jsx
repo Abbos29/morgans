@@ -1,6 +1,7 @@
 import Benefits from "@/components/Benefits/Benefits";
 import Hero from "@/components/Hero/Hero";
 import Wrap from "@/components/Wrap/Wrap";
+import WrapSec from "@/components/WrapSec/WrapSec";
 import Head from "next/head";
 
 
@@ -59,6 +60,7 @@ export default function Home() {
       <Hero />
       <Benefits />
       <Wrap />
+      <WrapSec />
 
     </>
   );

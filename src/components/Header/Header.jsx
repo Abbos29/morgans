@@ -7,10 +7,28 @@ import { useEffect, useState } from 'react'
 const Header = () => {
 
     const [isMenu, setIsMenu] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false);
+
 
     const menuHandle = () => {
         setIsMenu(!isMenu)
     }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,7 +47,7 @@ const Header = () => {
     }, [])
 
     return (
-        <header className={s.header}>
+        <header className={`${s.header} ${isScrolled ? 'xscroll' : ''}`} id='header'>
             <div className="container">
                 <nav className={s.nav}>
                     <Link className={`${s.logo}`} href="/">
@@ -37,10 +55,11 @@ const Header = () => {
                     </Link>
 
                     <div className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>
-                        <a className="link" href="">Главная</a>
-                        <a className="link" href="">О нас</a>
-                        <a className="link" href="">Продукция</a>
-                        <a className="link" href="">Контакты</a>
+                        {/* <a className="link" href="">О нас</a> */}
+                        <Link onClick={menuHandle} className='link' href={'/'}>Главная</Link>
+                        <Link onClick={menuHandle} className='link' href={'/about'}>О нас</Link>
+                        <Link onClick={menuHandle} className='link' href={'/shop'}>Продукция</Link>
+                        <Link onClick={menuHandle} className='link' href={'/contacts'}>Контакты</Link>
                     </div>
 
                     <div className={s.box}>
@@ -63,7 +82,12 @@ const Header = () => {
 
                 </nav>
             </div>
+
+            <a className={`${s.btn_up} ${isScrolled ? 'visible' : ''}`} href="#">
+                <img src="./up_arrow.svg" alt="img" />
+            </a>
         </header>
+
     )
 }
 

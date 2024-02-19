@@ -1,8 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
+*{
+-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+-webkit-tap-highlight-color: transparent;
+
+}
+html {
+  scroll-behavior: smooth;
+  
+}
 body {
   // color: #fff;
   // background-color: #000;
+  scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
   padding-top: 100px;
 
@@ -56,7 +66,7 @@ button {
 }
 
 .container {
-  max-width: 1800px;
+  max-width: 1500px;
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -65,6 +75,11 @@ button {
 .xscroll {
   box-shadow: 1px 1px 40px 5px rgba(0, 0, 0, 0.5);
   padding: 10px 0;
+}
+.visible {
+  opacity: 1;
+  visibility: visible;
+  // display: grid;
 }
 
 .menu-open {

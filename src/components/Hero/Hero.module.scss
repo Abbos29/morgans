@@ -1,0 +1,59 @@
+.hero {
+
+}
+
+.wrapper {
+    color: #fff;
+    height: 80dvh;
+    background-image: url(/banner-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 100px;
+
+    transition: all .3s;
+
+    animation: bg 7s infinite alternate-reverse linear;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+
+    p {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    h1{
+        font-weight: 700;
+        font-size: 100px;
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+}
+
+
+
+@keyframes bg {
+    0% {
+        background-image: url(/banner-1.jpg);
+        background-position: top 100px;
+    }
+    50% {
+        background-image: url(/banner-2.jpg);
+        background-position: top 0px;
+    }
+    100% {
+        background-image: url(/banner-3.jpg);
+        background-position: top 0px;
+    }
+}

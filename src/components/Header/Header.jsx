@@ -1,32 +1,18 @@
 // import React from 'react'
 import Link from 'next/link'
 import s from './Header.module.scss'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 
 
 const Header = () => {
 
     const [isMenu, setIsMenu] = useState(false)
-    const menuRef = useRef(null);
 
 
     const menuHandle = () => {
         setIsMenu(!isMenu)
+
     }
-
-    const handleClickOutside = (event) => {
-        if (menuRef.current && !menuRef.current.contains(event.target)) {
-            setIsMenu(false);
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
 
 
     return (
@@ -37,7 +23,7 @@ const Header = () => {
                         <img src="./logo.png" alt="logo" />
                     </Link>
 
-                    <div ref={menuRef} className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>
+                    <div className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>
                         <a className="link" href="">Главная</a>
                         <a className="link" href="">О нас</a>
                         <a className="link" href="">Продукция</a>
@@ -55,8 +41,10 @@ const Header = () => {
                             </svg>
                         </div>
 
-                        <div className={s.burger} onClick={menuHandle}>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 5L2 7L22 7L22 5L2 5 z M 2 11L2 13L22 13L22 11L2 11 z M 2 17L2 19L22 19L22 17L2 17 z" /></svg>
+                        <div className={`${s.burger} ${isMenu ? 'burger-open' : ''}`} onClick={(e) => menuHandle(e)}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
                     </div>
 

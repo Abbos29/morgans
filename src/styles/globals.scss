@@ -25,9 +25,23 @@ input {
   padding: 0 15px;
 }
 
-
 .menu-open {
-  left: 0 !important;  
+  top: 0 !important;
+}
+.burger-open {
+  span {
+    &:nth-child(1) {
+      transform: translateY(280%) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-280%) rotate(-45deg);
+    }
+  }
 }
 
 // LINK ANIMATION
@@ -50,11 +64,11 @@ input {
     transition: width 0.5s;
   }
 
-  &:hover::after {
-    width: 100%;
-    left: 0;
-    background-color: #1c1c1c;
+  @media (hover: hover) {
+    &:hover::after {
+      width: 100%;
+      left: 0;
+      background-color: #1c1c1c;
+    }
   }
 }
-
-

@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero/Hero";
 import Head from "next/head";
 
 
@@ -53,6 +54,7 @@ export default function Home() {
       </Head>
 
 
+      <Hero />
 
     </>
   );

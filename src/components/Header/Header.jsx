@@ -1,19 +1,32 @@
 // import React from 'react'
 import Link from 'next/link'
 import s from './Header.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 const Header = () => {
 
     const [isMenu, setIsMenu] = useState(false)
 
-
     const menuHandle = () => {
         setIsMenu(!isMenu)
-
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                document.querySelector('header').classList.add('xscroll')
+            } else {
+                document.querySelector('header').classList.remove('xscroll')
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
     return (
         <header className={s.header}>

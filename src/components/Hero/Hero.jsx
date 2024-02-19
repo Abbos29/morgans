@@ -8,7 +8,7 @@ const Hero = () => {
                 <div className={s.wrapper}>
                     <div className={s.box}>
                         <p>Добро пожаловать</p>
-                        <h1>Онлайн-магазин Morgan's Pomades UK</h1>
+                        <h1>Онлайн-магазин <br /> Morgan's Pomades UK</h1>
                         <h2>Официальный дистрибьютер премиальной мужской косметики в Узбекистане</h2>
                         <button className="btn">Продукция</button>
                     </div>

@@ -1,0 +1,28 @@
+.beard {
+  width: 100%;
+  height: max-content;
+  padding: clamp(1.875rem, 1.193rem + 3.41vw, 3.75rem) 0;
+  background-color: #dedddd4a;
+  .box {
+    text-align: center;
+    h1 {
+      font-weight: 600;
+      color: #161616;
+      font-size: clamp(2.563rem, 2.244rem + 1.59vw, 3.438rem);
+      font-weight: 700;
+      margin: 5px 0;
+    }
+    h3 {
+      font-weight: 800;
+      color: #161616;
+      line-height: 2.667em;
+      font-size: 16px;
+      a{
+        font-weight: 800;
+        color: #161616;
+        line-height: 2.667em;
+        font-size: 16px;
+      }
+    }
+  }
+}

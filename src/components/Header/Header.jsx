@@ -8,8 +8,6 @@ const Header = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-    const [isMenu, setIsMenu] = useState(false)
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
 

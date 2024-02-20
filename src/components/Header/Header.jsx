@@ -4,10 +4,13 @@ import s from './Header.module.scss'
 import { useEffect, useState } from 'react'
 
 
+
 const Header = () => {
 
     const [isMenu, setIsMenu] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
 
 
     const menuHandle = () => {
@@ -23,28 +26,36 @@ const Header = () => {
             }
         };
 
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 992);
+        };
+
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 10) {
-                document.querySelector('header').classList.add('xscroll')
-            } else {
-                document.querySelector('header').classList.remove('xscroll')
-            }
-        }
+        if (isSmallScreen) {
+            const handleScroll = () => {
+                if (window.scrollY > 10) {
+                    document.querySelector('header').classList.add('xscroll');
+                } else {
+                    document.querySelector('header').classList.remove('xscroll');
+                }
+            };
 
-        window.addEventListener('scroll', handleScroll)
+            window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
         }
-    }, [])
+    }, [isSmallScreen]);
 
     return (
         <header className={`${s.header} ${isScrolled ? 'xscroll' : ''}`} id='header'>
@@ -56,10 +67,10 @@ const Header = () => {
 
                     <div className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>
                         {/* <a className="link" href="">О нас</a> */}
-                        <Link onClick={menuHandle} className='link' href={'/'}>Главная</Link>
-                        <Link onClick={menuHandle} className='link' href={'/about'}>О нас</Link>
-                        <Link onClick={menuHandle} className='link' href={'/shop'}>Продукция</Link>
-                        <Link onClick={menuHandle} className='link' href={'/contacts'}>Контакты</Link>
+                        <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/'}>Главная</Link>
+                        <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/about'}>О нас</Link>
+                        <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/shop'}>Продукция</Link>
+                        <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/contacts'}>Контакты</Link>
                     </div>
 
                     <div className={s.box}>

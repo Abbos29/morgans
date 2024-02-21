@@ -1,0 +1,33 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px 30px;
+    place-items: center;
+
+    padding: 30px 0;
+
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+
+
+    h2 {
+        // font-size: 40px;
+        font-size: clamp(1.75rem, 1.486rem + 1.08vw, 2.5rem);
+        font-weight: 700;
+        color: #1f1f1f;
+        line-height: 1.1;
+    }
+    h3 {
+        font-size: 18px;
+        color: #1f1f1f;
+
+        margin-top: 20px;
+    }
+}

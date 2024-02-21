@@ -1,18 +1,21 @@
-import React from 'react'
-import s from './Product.module.scss'
+import React from 'react';
+import s from './Product.module.scss';
+import Link from 'next/link';
 
-const Product = () => {
-    return (
-        <div className={s.product}>
-            <div className={s.box}>
-                <h3>Уход за лицом и телом</h3>
-                <a href=""><h2>Антибактериальное лечебное мыло</h2></a>
-                <b>12 000 sum</b>
-                <button className="btn">В корзину</button>
-            </div>
-            <img className={s.img} src="./card-1.jpeg" alt="product-img" />
-        </div>
-    )
-}
+const Product = ({ id, name, image, category, price }) => {
+  return (
+    <div className={s.product}>
+      <div className={s.box}>
+        <h3>{category}</h3>
+        <Link href={`/single-product/${id}`}>
+          <h2>{name}</h2>
+        </Link>
+        <b>{price} sum</b>
+        <button className='btn'>В корзину</button>
+      </div>
+      <img className={s.img} src={image} alt={name} />
+    </div>
+  );
+};
 
-export default Product
+export default Product;

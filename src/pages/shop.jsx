@@ -56,7 +56,7 @@ export default function Shop() {
 
 
       {/* <h1>Продукция</h1> */}
-      <Products productCount={40} />
+      <Products productCount={12} />
 
     </>
   );

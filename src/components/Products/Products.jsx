@@ -2,9 +2,10 @@ import React from 'react'
 import Product from '../Product/Product'
 import s from './Products.module.scss'
 
-const Products = () => {
+const Products = ({ productCount }) => {
 
-    const productCount = Array.from({ length: 8 }, (_, index) => index + 1);
+    // const productCount = Array.from({ length: productCount }, (_, index) => index + 1);
+    const productsArray = Array.from({ length: productCount }, (_, index) => index + 1);
 
     return (
         <section className={s.products}>
@@ -19,8 +20,8 @@ const Products = () => {
                 </div>
 
                 <div className={s.grid}>
-                    {productCount.map((el, index) => (
-                        <Product key={index}/>
+                    {productsArray.map((el, index) => (
+                        <Product key={index} />
                     ))}
                 </div>
             </div>

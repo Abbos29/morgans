@@ -1,4 +1,5 @@
 
+import Products from "@/components/Products/Products";
 import Head from "next/head";
 
 
@@ -54,7 +55,8 @@ export default function Shop() {
       </Head>
 
 
-<h1>Продукция</h1>
+      {/* <h1>Продукция</h1> */}
+      <Products productCount={40} />
 
     </>
   );

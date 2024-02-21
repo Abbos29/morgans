@@ -64,7 +64,7 @@ export default function Home() {
       <Wrap />
       <WrapSec />
       <Banner />
-      <Products />
+      <Products productCount={8} />
 
     </>
   );

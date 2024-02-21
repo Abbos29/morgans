@@ -68,7 +68,7 @@ const Header = () => {
                     <div className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>
                         {/* <a className="link" href="">О нас</a> */}
                         <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/'}>Главная</Link>
-                        <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/about'}>О нас</Link>
+                        {/* <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/about'}>О нас</Link> */}
                         <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/shop'}>Продукция</Link>
                         <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/contacts'}>Контакты</Link>
                         <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/tips'}>Советы по укладке</Link>

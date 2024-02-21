@@ -6,11 +6,22 @@
     justify-content: center;
     gap: 10px;
 
-   
-
     &:hover {
         .card_img img {
             scale: 1;
+        }
+
+        .card_box {
+            button {
+                position: relative;
+                opacity: 1;
+            }
+            b {
+                position: absolute;
+                opacity: 0;
+                width: max-content;
+                // display: none;
+            }
         }
     }
 }
@@ -22,7 +33,7 @@
         width: 100% !important;
         object-fit: cover;
         scale: 1.05;
-        transition: all .5s;
+        transition: all 0.5s;
 
         @media (max-width: 768px) {
             min-width: 260px !important;
@@ -68,7 +79,6 @@
 
     position: relative;
 
-    
     b {
         transition: all 0.5s;
 
@@ -83,15 +93,5 @@
     }
 
     &:hover {
-        button {
-            position: relative;
-            opacity: 1;
-        }
-        b {
-            position: absolute;
-            opacity: 0;
-            width: max-content;
-            // display: none;
-        }
     }
 }

@@ -24,8 +24,15 @@ const Products = () => {
         </div>
 
         <div className={s.grid}>
-          {data?.map((el,i) => (
-            <Product key={i} id={el?.id} name={el?.name} image={el?.image} price={el?.price} category={el?.category}  />
+          {data?.map((el, i) => (
+            <Product
+              key={i}
+              id={el?.id}
+              name={el?.name}
+              image={el?.image}
+              price={el?.price}
+              category={el?.category}
+            />
           ))}
         </div>
       </div>

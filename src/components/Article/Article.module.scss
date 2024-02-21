@@ -3,6 +3,7 @@
   width: 100%;
   margin: 0 auto;
   padding: clamp(1.875rem, 1.193rem + 3.41vw, 3.75rem) 0;
+  padding-bottom: 0;
   .item {
     display: flex;
     flex-direction: column;
@@ -20,6 +21,7 @@
   .item__wrapper {
     display: flex;
     padding: clamp(1.875rem, 1.193rem + 3.41vw, 3.75rem) 0;
+    padding-bottom: 0;
     gap: 30px;
     @media (max-width: 810px) {
         flex-direction: column;

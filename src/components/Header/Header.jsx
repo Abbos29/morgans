@@ -71,6 +71,7 @@ const Header = () => {
                         <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/about'}>О нас</Link>
                         <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/shop'}>Продукция</Link>
                         <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/contacts'}>Контакты</Link>
+                        <Link onClick={isSmallScreen ? menuHandle : undefined} className='link' href={'/tips'}>Советы по укладке</Link>
                     </div>
 
                     <div className={s.box}>

@@ -1,3 +1,4 @@
+import Article from '@/components/Article/Article';
 import Beard from '@/components/Beard/Beard';
 import Head from 'next/head';
 import React from 'react';
@@ -88,6 +89,7 @@ const Tips = () => {
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
       <Beard title={'Советы по укладке'} />
+      <Article />
     </>
   );
 };

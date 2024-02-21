@@ -2,10 +2,11 @@ import React from 'react';
 import Product from '../Product/Product';
 import s from './Products.module.scss';
 import useSWR from 'swr';
+import Link from 'next/link';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const Products = () => {
+const Products = ({link}) => {
   // const productCount = Array.from({ length: productCount }, (_, index) => index + 1);
   const { data } = useSWR('http://localhost:7777/products', fetcher);
 
@@ -18,9 +19,9 @@ const Products = () => {
             <h3>Покупайте товары с доставкой на дом</h3>
           </div>
 
-          <a className='btn' href=''>
+          <Link className='btn' href={`/shop`}>
             Выбрать продукцию
-          </a>
+          </Link>
         </div>
 
         <div className={s.grid}>

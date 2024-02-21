@@ -1,6 +1,7 @@
 import React from 'react'
 import Product from '../Product/Product'
 import s from './Products.module.scss'
+import Link from 'next/link';
 
 const Products = ({ productCount }) => {
 
@@ -16,7 +17,7 @@ const Products = ({ productCount }) => {
                         <h3>Покупайте товары с доставкой на дом</h3>
                     </div>
 
-                    <a className="btn" href="">Выбрать продукцию</a>
+                    <Link href={'/shop'} className='btn'>Выбрать продукцию</Link>
                 </div>
 
                 <div className={s.grid}>

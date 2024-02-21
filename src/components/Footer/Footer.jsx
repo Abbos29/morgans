@@ -30,14 +30,13 @@ const Footer = () => {
           </div>
           <div className={s.item}>
             <h3>Связь с нами</h3>
-            <a style={{ fontFamily: 'sans-serif' }} href='tel:+998998557385'>
-              +998 99 855 73 85
+            <a style={{ fontFamily: 'sans-serif' }} href='tel:+998332223390'>
+              +998 33 222 33 90
             </a>
             <a href='mailto:admin@morgans.uz'>admin@morgans.uz</a>
             <p className={s.footer__address}>
-              ТОО MUSAN DISTRIBUTION <br /> Ул. Пушкина 4
-              <br />
-              г. Ташкент
+              Ташкент, пр.
+              Олой Бозори, 59/7
               <br />
               Республика Узбекистан
             </p>
@@ -48,7 +47,7 @@ const Footer = () => {
             Наш Instagram
           </a>
           <Link href={'/'}>Конфиденциальность</Link>
-          <p>© 2022 Morgan’s | Musan Distribution</p>
+          <p>© 2024 Morgan’s | Clanz</p>
         </div>
       </div>
     </footer>

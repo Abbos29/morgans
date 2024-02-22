@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner/Banner";
 import Benefits from "@/components/Benefits/Benefits";
 import Hero from "@/components/Hero/Hero";
+import Inner from "@/components/Inner/Inner";
 import Products from "@/components/Products/Products";
 import Wrap from "@/components/Wrap/Wrap";
 import WrapSec from "@/components/WrapSec/WrapSec";
@@ -64,8 +65,7 @@ export default function Home() {
       <Wrap />
       <WrapSec />
       <Banner />
-      <Products productCount={8} />
-
+      <Inner/>
     </>
   );
 }

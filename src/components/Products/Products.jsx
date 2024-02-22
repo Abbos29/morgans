@@ -4,7 +4,10 @@ import s from './Products.module.scss';
 import useSWR from 'swr';
 import Link from 'next/link';
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (url) =>
+  fetch(url)
+    .then((res) => res.json())
+    .catch((err) => alert(err));
 
 const Products = () => {
   const { data } = useSWR('http://localhost:7777/products', fetcher);

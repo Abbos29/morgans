@@ -103,8 +103,8 @@ const Header = () => {
                                     <div className={s.cart_top}>
                                         <h3>Корзина</h3>
 
-                                        <svg onClick={cartClosed} aria-hidden="true" focusable="false" fill="none" width="14" class="icon icon-close" viewBox="0 0 16 16">
-                                            <path d="m1 1 14 14M1 15 15 1" stroke="currentColor" stroke-width="1.5"></path>
+                                        <svg onClick={cartClosed} aria-hidden="true" focusable="false" fill="none" width="14" viewBox="0 0 16 16">
+                                            <path d="m1 1 14 14M1 15 15 1" stroke="currentColor" strokeWidth="1.5"></path>
                                         </svg>
                                     </div>
 

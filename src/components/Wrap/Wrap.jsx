@@ -9,7 +9,7 @@ const Wrap = () => {
       <div className="container">
         <div className={s.wrapper}>
 
-          <Card />
+          <Card id={3} />
 
           <div className={s.box}>
             <b>Онлайн-магазин</b>

@@ -2,18 +2,21 @@ import axios from 'axios';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { useCart } from 'react-use-cart';
+import { useIsClient } from 'usehooks-ts';
 
 export async function getServerSideProps() {
-  const { data } = await axios.get('http://localhost:7777/products/')
+  const { data } = await axios.get('http://localhost:7777/products/');
   return { props: { data } };
 }
 
 const SingleProduct = ({ data }) => {
+  const { getItem, addItem, removeItem } = useCart();
+  const isClient = useIsClient();
   const router = useRouter();
   const findProduct = data?.find((el) => {
     return el?.id == router.query.id;
   });
-  console.log(findProduct);
   return (
     <>
       <Head>
@@ -62,7 +65,16 @@ const SingleProduct = ({ data }) => {
       </Head>
       <div>
         <h1>{findProduct?.name}</h1>
-        <img width={"100px"} src={findProduct?.image} alt="" />
+        <img width={'100px'} src={findProduct?.image} alt='' />
+        {isClient && !getItem(findProduct?.id) ? (
+          <button className='btn' onClick={() => addItem(findProduct)}>
+            В корзину
+          </button>
+        ) : (
+          <button className='btn' onClick={() => removeItem(findProduct?.id)}>
+            Отменить
+          </button>
+        )}
       </div>
     </>
   );

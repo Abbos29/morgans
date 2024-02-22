@@ -35,6 +35,7 @@ const Products = () => {
               image={el?.image}
               price={el?.price}
               category={el?.category}
+              el={el}
             />
           ))}
         </div>

@@ -3,6 +3,8 @@ import Beard from '@/components/Beard/Beard';
 import Products from '@/components/Products/Products';
 import Head from 'next/head';
 import React from 'react';
+import { data } from '@/db/data';
+import Inner from '@/components/Inner/Inner';
 
 const Tips = () => {
   return (
@@ -91,9 +93,9 @@ const Tips = () => {
       </Head>
       <Beard title={'Советы по укладке'} />
       <Article id={1} />
-      <Products productCount={4} />
+      <Inner />
       <Article id={2} />
-      <Products productCount={4} />
+      <Inner />
     </>
   );
 };

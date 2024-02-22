@@ -21,11 +21,9 @@ const Article = ({id}) => {
                   <p>{findArt?.desc3}</p>
                 </div>
                 <ul className={s.right}>
-                    <li>{findArt?.txt1}</li>
-                    <li>{findArt?.txt2}</li>
-                    <li>{findArt?.txt3}</li>
-                    <li>{findArt?.txt4}</li>
-                    <li>{findArt?.txt5}</li>
+                      {findArt?.txts?.map((el,i) => (
+                        <li key={i}>{el?.txt}</li>
+                      ))}
                 </ul>
               </div>
             </div>

@@ -76,7 +76,7 @@ const Header = () => {
             <div className="container">
                 <nav className={s.nav}>
                     <Link className={`${s.logo}`} href="/">
-                        <img src="./logo.png" alt="logo" />
+                        <img src="/logo.png" alt="logo" />
                     </Link>
 
                     <div className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>
@@ -214,7 +214,7 @@ const Header = () => {
             </div>
 
             <a className={`${s.btn_up} ${isScrolled ? 'visible' : ''}`} href="#">
-                <img src="./up_arrow.svg" alt="img" />
+                <img src="/up_arrow.svg" alt="img" />
             </a>
         </header>
 

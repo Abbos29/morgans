@@ -1,5 +1,6 @@
 import React from 'react'
 import s from './Hero.module.scss'
+import Link from 'next/link'
 
 const Hero = () => {
     return (
@@ -10,7 +11,7 @@ const Hero = () => {
                         <p>Добро пожаловать</p>
                         <h1>Онлайн-магазин <br /> Morgan's Pomades UK</h1>
                         <h2>Официальный дистрибьютер премиальной мужской косметики в Узбекистане</h2>
-                        <button className="btn">Продукция</button>
+                        <Link href={'/shop'} className="btn">Продукция</Link>
                     </div>
                 </div>
             </div>

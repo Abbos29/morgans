@@ -5,6 +5,8 @@ import React from 'react';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
 
+import s from './page.module.scss'
+
 export async function getServerSideProps() {
   const { data } = await axios.get('http://localhost:7777/products/');
   return { props: { data } };
@@ -57,24 +59,42 @@ const SingleProduct = ({ data }) => {
         <meta property='og:image:url' content={findProduct?.image} />
         <meta property='og:image:secure_url' content={findProduct?.image} />
         {/* <meta property="article:publisher" content="https://www.facebook.com/morganskazakhstan" /> */}
-        <meta name='twitter:title' content='Главная' />
+        <meta name='twitter:title' content={findProduct?.name} />
         <meta name='twitter:url' content='https://morgans.uz' />
         <meta name='twitter:description' content={findProduct?.name} />
         <meta name='twitter:image' content={findProduct?.image} />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
       <div>
-        <h1>{findProduct?.name}</h1>
-        <img width={'100px'} src={findProduct?.image} alt='' />
-        {isClient && !getItem(findProduct?.id) ? (
-          <button className='btn' onClick={() => addItem(findProduct)}>
-            В корзину
-          </button>
-        ) : (
-          <button className='btn' onClick={() => removeItem(findProduct?.id)}>
-            Отменить
-          </button>
-        )}
+
+        <section className={s.page}>
+          <div className="container">
+            <div className={s.wrapper}>
+              <img className={s.img} src={findProduct?.image} alt={findProduct.desc} />
+
+              <div className={s.box}>
+                <h1>{findProduct?.name}</h1>
+                <h2>{findProduct.desc}</h2>
+                <p>{findProduct.price} <span>sum</span></p>
+                <b>{findProduct.weight}</b>
+
+                {isClient && !getItem(findProduct?.id) ? (
+                  <button className='btn' onClick={() => addItem(findProduct)}>
+                    В корзину
+                  </button>
+                ) : (
+                  <button className='btn' onClick={() => removeItem(findProduct?.id)}>
+                    Отменить
+                  </button>
+                )}
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+
+
       </div>
     </>
   );

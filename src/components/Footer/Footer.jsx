@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className={s.footer}>
+    <footer className={s.footer} id='footer'>
       <div className='container'>
         <div className={s.footer__top}>
           <img src='/logo-white.png' alt='Logo' />

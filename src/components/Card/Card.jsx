@@ -16,10 +16,10 @@ const Card = ({ id }) => {
       <Link href={`/single-product/${id}`} className={s.card_name}>
         Помада для укладки · Средняя фиксация
       </Link>
-      <div className={s.card_box}>
+      <Link href={`/single-product/${id}`} className={s.card_box}>
         <b className={s.card_price}>12 000 sum</b>
         <button className={s.card_add}>В корзину</button>
-      </div>
+      </Link>
     </div>
   );
 };

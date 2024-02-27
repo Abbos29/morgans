@@ -75,7 +75,7 @@ const SingleProduct = ({ data }) => {
               <div className={s.box}>
                 <h1>{findProduct?.name}</h1>
                 <h2>{findProduct.desc}</h2>
-                <p>{findProduct.price} <span>sum</span></p>
+                <p>{findProduct.price} <span>сум</span></p>
                 <b>{findProduct.weight}</b>
 
                 {isClient && !getItem(findProduct?.id) ? (

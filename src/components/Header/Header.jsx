@@ -192,7 +192,7 @@ const Header = () => {
                                         onClick={() =>
                                           updateItemQuantity(
                                             el.id,
-                                            el.quantity--
+                                            el.quantity - 1
                                           )
                                         }
                                       >
@@ -203,7 +203,7 @@ const Header = () => {
                                         onClick={() =>
                                           updateItemQuantity(
                                             el.id,
-                                            el.quantity++
+                                            el.quantity + 1
                                           )
                                         }
                                       >

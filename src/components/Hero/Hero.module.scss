@@ -1,0 +1,73 @@
+.hero {
+    padding-top: 0;
+}
+
+.wrapper {
+    color: #fff;
+    height: 80dvh;
+    background-image: url(/banner-1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    // padding: 100px;
+    // padding: clamp(3.125rem, 1.677rem + 6.1vw, 6.25rem);
+    padding: 50px clamp(1.875rem, -0.152rem + 8.54vw, 6.25rem);
+
+    transition: all .3s;
+
+    animation: bg 5s infinite alternate-reverse linear;
+
+    @media (max-width: 992px) {
+        background-size: cover !important;
+    }
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+
+    p {
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: uppercase;
+        
+        letter-spacing: 2px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        translate: 10px;
+    }
+
+    h1{
+        font-weight: 700;
+        // font-size: 100px;
+        font-size: clamp(2.188rem, 0.305rem + 7.93vw, 6.25rem);
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: 18px;
+        line-height: 1.2;
+        padding-bottom: 20px;
+    }
+
+}
+
+
+
+@keyframes bg {
+    0% {
+        background-image: url(/banner-1.jpg);
+        background-size: 100%;
+    }
+    50% {
+        background-image: url(/banner-2.jpg);
+        background-size: 120%;
+    }
+    100% {
+        background-image: url(/banner-3.jpg);
+        background-size: 150%;
+    }
+}

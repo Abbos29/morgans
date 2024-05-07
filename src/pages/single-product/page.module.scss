@@ -55,11 +55,21 @@
   b {
     color: gray;
   }
+
+  &:has(.single_nope) {
+    h6 {
+      display: none;
+    }
+  }
 }
 
 .single_nope {
-  padding: 5px;
+  padding: 10px 16px;
   background-color: #1f1f1f;
   color: white;
   border-radius: 4px;
+  display: block;
+  width: max-content;
+
+  order: -5;
 }

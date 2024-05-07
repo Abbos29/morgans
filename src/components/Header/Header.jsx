@@ -5,6 +5,14 @@ import { useEffect, useState } from 'react';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
 import axios from 'axios';
+import useSWR from 'swr';
+
+const API_TOKEN = 'https://riot1806.pythonanywhere.com/products/';
+
+const fetcher = (url) =>
+  fetch(url)
+    .then((res) => res.json())
+    .catch((err) => alert(err));
 
 const Header = () => {
   const [name, setName] = useState('');
@@ -17,6 +25,8 @@ const Header = () => {
     useCart();
   let total = 0;
   const isClient = useIsClient();
+
+  const { data } = useSWR(`${API_TOKEN}`, fetcher);
 
   const menuHandle = () => {
     setIsMenu(!isMenu);
@@ -43,24 +53,26 @@ const Header = () => {
   const postTest = (e) => {
     e.preventDefault();
 
+    // Prepare the message for Telegram
     const message = `
-<b>Заявка: ${sliced}</b>
-<b>Имя: ${name}</b>
-<b>Номер телефона: ${tel}</b>
-${items
-  .map(
-    (item) => `
-<b>${item.name}</b>
+      <b>Заявка: ${sliced}</b>
+      <b>Имя: ${name}</b>
+      <b>Номер телефона: ${tel}</b>
+      ${items
+        .map(
+          (item) => `
+      <b>${item.name}</b>
+      ${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
+      `
+        )
+        .join('')}        
+      <b>Total:</b> ${total}$
+    `;
 
-${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
-`
-  )
-  .join('')}        
-<b>Total:</b> ${total}$
-`;
-
+    // Telegram API endpoint URL
     const url = `https://api.telegram.org/bot7168278835:AAE6qgB26C0m-0KYlDu9LKImshpv1mTGEIs/sendMessage`;
 
+    // Send the message to Telegram
     axios
       .post(url, {
         chat_id: '-1002039753651',
@@ -68,11 +80,67 @@ ${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
         parse_mode: 'html',
       })
       .then(() => {
+        // If the message is sent successfully, update quantities in the backend database
+        items.forEach((item) => {
+          const productData = data?.find((product) => product.id === item.id);
+          if (productData) {
+            const updatedQuantity = productData.quantity - item.quantity;
+            // Send PATCH request to update quantity
+            axios
+              .patch(`${API_TOKEN}${item.id}`, {
+                quantity: updatedQuantity,
+              })
+              .then((response) => {
+                console.log('Quantity updated successfully:', response.data);
+              })
+              .catch((error) => {
+                console.error('Error updating quantity:', error);
+              });
+          }
+        });
+
+        // Clear the cart and reload the page
         emptyCart();
         window.location.reload();
       })
-      .catch((error) => console.error('Error:', error));
+      .catch((error) => {
+        console.error('Error sending message to Telegram:', error);
+      });
   };
+
+  //   const postTest = (e) => {
+  //     e.preventDefault();
+
+  //     const message = `
+  // <b>Заявка: ${sliced}</b>
+  // <b>Имя: ${name}</b>
+  // <b>Номер телефона: ${tel}</b>
+  // ${items
+  //   .map(
+  //     (item) => `
+  // <b>${item.name}</b>
+
+  // ${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
+  // `
+  //   )
+  //   .join('')}
+  // <b>Total:</b> ${total}$
+  // `;
+
+  //     const url = `https://api.telegram.org/bot7168278835:AAE6qgB26C0m-0KYlDu9LKImshpv1mTGEIs/sendMessage`;
+
+  //     axios
+  //       .post(url, {
+  //         chat_id: '-1002039753651',
+  //         text: message,
+  //         parse_mode: 'html',
+  //       })
+  //       .then(() => {
+  //         emptyCart();
+  //         window.location.reload();
+  //       })
+  //       .catch((error) => console.error('Error:', error));
+  //   };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -213,6 +281,13 @@ ${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
                         items.map((el) => {
                           const priceCount = el?.quantity * el?.price;
                           total += priceCount;
+                          const productData = data?.find(
+                            (product) => product.id === el.id
+                          ); // Find the corresponding product data
+                          const maxQuantity = productData?.quantity || 0; // Get the maximum available quantity, default to 0 if not found
+
+                          // Disable increase button if quantity in cart equals maximum available quantity
+                          const disableIncrease = el.quantity >= maxQuantity;
                           if (el?.quantity >= 1) {
                             return (
                               <div className={s.cart_item} key={el.id}>
@@ -228,7 +303,7 @@ ${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
 
                                   <div className={s.flex}>
                                     <div className={s.row}>
-                                      <button
+                                      {/* <button
                                         onClick={() =>
                                           updateItemQuantity(
                                             el.id,
@@ -246,6 +321,29 @@ ${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
                                             el.quantity + 1
                                           )
                                         }
+                                      >
+                                        +
+                                      </button> */}
+                                      <button
+                                        onClick={() =>
+                                          updateItemQuantity(
+                                            el.id,
+                                            el.quantity - 1
+                                          )
+                                        }
+                                      >
+                                        -
+                                      </button>
+                                      <p>{el?.quantity}</p>
+                                      {/* Increase button with conditional disable */}
+                                      <button
+                                        onClick={() =>
+                                          updateItemQuantity(
+                                            el.id,
+                                            el.quantity + 1
+                                          )
+                                        }
+                                        disabled={disableIncrease}
                                       >
                                         +
                                       </button>
@@ -270,30 +368,32 @@ ${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
                     </div>
                   )}
 
-                  <div className={s.cart_form}>
-                    <b>Обшая сумма:</b>
-                    <h3>{total.toLocaleString()} $</h3>
-                    <br />
-                    {!isEmpty ? (
-                      <form onSubmit={postTest}>
-                        <input
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          placeholder='Имя'
-                          type='text'
-                          required
-                        />
-                        <input
-                          value={tel}
-                          onChange={(e) => setTel(e.target.value)}
-                          placeholder='Телефон'
-                          type='text'
-                          required
-                        />
-                        <button type='submit'>Оформить заказ</button>
-                      </form>
-                    ) : null}
-                  </div>
+                  {isClient && (
+                    <div className={s.cart_form}>
+                      <b>Обшая сумма:</b>
+                      <h3>{total.toLocaleString()} $</h3>
+                      <br />
+                      {!isEmpty ? (
+                        <form onSubmit={postTest}>
+                          <input
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder='Имя'
+                            type='text'
+                            required
+                          />
+                          <input
+                            value={tel}
+                            onChange={(e) => setTel(e.target.value)}
+                            placeholder='Телефон'
+                            type='text'
+                            required
+                          />
+                          <button type='submit'>Оформить заказ</button>
+                        </form>
+                      ) : null}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

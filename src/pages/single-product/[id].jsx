@@ -78,6 +78,10 @@ const SingleProduct = ({ data }) => {
               />
 
               <div className={s.box}>
+
+            
+
+                
                 <h6>В наличии: {findProduct?.quantity}</h6>
                 <h1>{findProduct?.name}</h1>
                 <h2>{findProduct?.description}</h2>
@@ -85,6 +89,7 @@ const SingleProduct = ({ data }) => {
                   {findProduct?.price} <span>$</span>
                 </p>
                 <b>{findProduct?.wvq}</b>
+
 
                 {findProduct?.quantity >= 1 ? (
                   isClient && !getItem(findProduct?.id) ? (
@@ -105,6 +110,7 @@ const SingleProduct = ({ data }) => {
                 ) : (
                   <span className={s.single_nope}>Нет в наличии</span>
                 )}
+                
               </div>
             </div>
           </div>

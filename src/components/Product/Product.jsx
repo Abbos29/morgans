@@ -16,14 +16,18 @@ const Product = ({ el }) => {
           <h2>{el?.name}</h2>
         </Link>
         <b>{el?.price} $</b>
-        {isClient && !getItem(el?.id) ? (
-          <button className='btn' onClick={() => addItem(el)}>
-            В корзину
-          </button>
+        {el?.quantity >= 1 ? (
+          isClient && !getItem(el?.id) ? (
+            <button className='btn' onClick={() => addItem(el)}>
+              В корзину
+            </button>
+          ) : (
+            <button className='btn' onClick={() => removeItem(el?.id)}>
+              Отменить
+            </button>
+          )
         ) : (
-          <button className='btn' onClick={() => removeItem(el?.id)}>
-            Отменить
-          </button>
+          <span className={s.nope}>Нет в наличии</span>
         )}
       </div>
       <img className={s.img} src={el?.image} alt={el?.name} />

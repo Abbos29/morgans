@@ -4,8 +4,11 @@ import s from './Header.module.scss';
 import { useEffect, useState } from 'react';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
+import axios from 'axios';
 
 const Header = () => {
+  const [name, setName] = useState('');
+  const [tel, setTel] = useState('');
   const [isMenu, setIsMenu] = useState(false);
   const [isCart, setIsCart] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,6 +35,43 @@ const Header = () => {
     if (!e.target.closest('.cart-open')) {
       setIsCart(false);
     }
+  };
+
+  let randomNum = Math.random();
+  let sliced = randomNum.toString().slice(2, -1);
+
+  const postTest = (e) => {
+    e.preventDefault();
+
+    const message = `
+<b>Заявка: ${sliced}</b>
+<b>Имя: ${name}</b>
+<b>Номер телефона: ${tel}</b>
+${items
+  .map(
+    (item) => `
+<b>${item.name}</b>
+
+${item.quantity} x ${item.price}$ = ${item.quantity * item.price}$
+`
+  )
+  .join('')}        
+<b>Total:</b> ${total}$
+`;
+
+    const url = `https://api.telegram.org/bot7168278835:AAE6qgB26C0m-0KYlDu9LKImshpv1mTGEIs/sendMessage`;
+
+    axios
+      .post(url, {
+        chat_id: '-1002039753651',
+        text: message,
+        parse_mode: 'html',
+      })
+      .then(() => {
+        emptyCart();
+        window.location.reload();
+      })
+      .catch((error) => console.error('Error:', error));
   };
 
   useEffect(() => {
@@ -234,11 +274,25 @@ const Header = () => {
                     <b>Обшая сумма:</b>
                     <h3>{total.toLocaleString()} $</h3>
                     <br />
-                    <form action=''>
-                      <input placeholder='Имя' type='text' required />
-                      <input placeholder='Телефон' type='text' required />
-                      <button>Оформить заказ</button>
-                    </form>
+                    {!isEmpty ? (
+                      <form onSubmit={postTest}>
+                        <input
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder='Имя'
+                          type='text'
+                          required
+                        />
+                        <input
+                          value={tel}
+                          onChange={(e) => setTel(e.target.value)}
+                          placeholder='Телефон'
+                          type='text'
+                          required
+                        />
+                        <button type='submit'>Оформить заказ</button>
+                      </form>
+                    ) : null}
                   </div>
                 </div>
               </div>

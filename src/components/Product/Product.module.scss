@@ -4,6 +4,16 @@
   overflow: hidden;
 
   
+  // &:has(.nope) {
+  //   // filter: grayscale(100%);
+  //   // box-shadow: 1px 1px 100px 100px black inset;
+
+  //   background-color: black;
+
+  //   a {
+  //     display: none;
+  //   }
+  // }
  
   &:hover {
     .box {
@@ -14,6 +24,8 @@
 }
 
 .box {
+
+
   position: absolute;
   top: -120%;
   left: 0;
@@ -57,10 +69,21 @@
     color: #000 !important;
     background-color: transparent !important;
   }
+
 }
 
 .img {
   max-width: 400px;
   width: 100%;
   background-color: #eeedf1;
+}
+
+.nope {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 4px;
 }

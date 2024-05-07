@@ -5,10 +5,12 @@ import React from 'react';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
 
-import s from './page.module.scss'
+import s from './page.module.scss';
 
 export async function getServerSideProps() {
-  const { data } = await axios.get('https://riot1806.pythonanywhere.com/products/');
+  const { data } = await axios.get(
+    'https://riot1806.pythonanywhere.com/products/'
+  );
   return { props: { data } };
 }
 
@@ -66,35 +68,47 @@ const SingleProduct = ({ data }) => {
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
       <div>
-
         <section className={s.page}>
-          <div className="container">
+          <div className='container'>
             <div className={s.wrapper}>
-              <img className={s.img} src={findProduct?.image} alt={findProduct?.description} />
+              <img
+                className={s.img}
+                src={findProduct?.image}
+                alt={findProduct?.description}
+              />
 
               <div className={s.box}>
+                <h6>В наличии: {findProduct?.quantity}</h6>
                 <h1>{findProduct?.name}</h1>
                 <h2>{findProduct?.description}</h2>
-                <p>{findProduct?.price} <span>$</span></p>
+                <p>
+                  {findProduct?.price} <span>$</span>
+                </p>
                 <b>{findProduct?.wvq}</b>
 
-                {isClient && !getItem(findProduct?.id) ? (
-                  <button className='btn' onClick={() => addItem(findProduct)}>
-                    В корзину
-                  </button>
+                {findProduct?.quantity >= 1 ? (
+                  isClient && !getItem(findProduct?.id) ? (
+                    <button
+                      className='btn'
+                      onClick={() => addItem(findProduct)}
+                    >
+                      В корзину
+                    </button>
+                  ) : (
+                    <button
+                      className='btn'
+                      onClick={() => removeItem(findProduct?.id)}
+                    >
+                      Отменить
+                    </button>
+                  )
                 ) : (
-                  <button className='btn' onClick={() => removeItem(findProduct?.id)}>
-                    Отменить
-                  </button>
+                  <span className={s.single_nope}>Нет в наличии</span>
                 )}
               </div>
-
             </div>
           </div>
         </section>
-
-
-
       </div>
     </>
   );

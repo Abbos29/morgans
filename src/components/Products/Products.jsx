@@ -11,7 +11,7 @@ const fetcher = (url) =>
 
 const Products = () => {
   const { data } = useSWR(
-    'https://riot1806.pythonanywhere.com/products/',
+    'https://api.morgans-store.uz/products/',
     fetcher
   );
 

@@ -7,12 +7,9 @@ import { useIsClient } from 'usehooks-ts';
 import axios from 'axios';
 import useSWR from 'swr';
 
-const API_TOKEN = 'https://riot1806.pythonanywhere.com/products/';
+const API_TOKEN = 'https://api.morgans-store.uz/products/';
 
-const fetcher = (url) =>
-  fetch(url)
-    .then((res) => res.json())
-    .catch((err) => alert(err));
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Header = () => {
   const [name, setName] = useState('');

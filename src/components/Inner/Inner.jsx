@@ -8,7 +8,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Inner = () => {
   const { data } = useSWR(
-    'https://riot1806.pythonanywhere.com/products/',
+    'https://api.morgans-store.uz/products/',
     fetcher
   );
 

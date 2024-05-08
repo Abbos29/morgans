@@ -9,7 +9,7 @@ import s from './page.module.scss';
 
 export async function getServerSideProps() {
   const { data } = await axios.get(
-    'https://riot1806.pythonanywhere.com/products/'
+    'https://api.morgans-store.uz/products/'
   );
   return { props: { data } };
 }

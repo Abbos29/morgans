@@ -104,7 +104,7 @@ const Header = () => {
     //     console.error('Error sending message to Telegram:', error);
     //   });
 
-    axios.post('http://localhost:8000/orders/', {
+    axios.post('https://api.morgans-store.uz/orders/', {
       order_num: sliced,
       name,
       phone_number: tel,

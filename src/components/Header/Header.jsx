@@ -69,40 +69,48 @@ const Header = () => {
     // Telegram API endpoint URL
     const url = `https://api.telegram.org/bot7168278835:AAE6qgB26C0m-0KYlDu9LKImshpv1mTGEIs/sendMessage`;
 
-    // Send the message to Telegram
-    axios
-      .post(url, {
-        chat_id: '-1002039753651',
-        text: message,
-        parse_mode: 'html',
-      })
-      .then(() => {
-        // If the message is sent successfully, update quantities in the backend database
-        items.forEach((item) => {
-          const productData = data?.find((product) => product.id === item.id);
-          if (productData) {
-            const updatedQuantity = productData.quantity - item.quantity;
-            // Send PATCH request to update quantity
-            axios
-              .patch(`${API_TOKEN}${item.id}`, {
-                quantity: updatedQuantity,
-              })
-              .then((response) => {
-                console.log('Quantity updated successfully:', response.data);
-              })
-              .catch((error) => {
-                console.error('Error updating quantity:', error);
-              });
-          }
-        });
+    // // Send the message to Telegram
+    // axios
+    //   .post(url, {
+    //     chat_id: '-1002039753651',
+    //     text: message,
+    //     parse_mode: 'html',
+    //   })
+    //   .then(() => {
+    //     // If the message is sent successfully, update quantities in the backend database
+    //     items.forEach((item) => {
+    //       const productData = data?.find((product) => product.id === item.id);
+    //       if (productData) {
+    //         const updatedQuantity = productData.quantity - item.quantity;
+    //         // Send PATCH request to update quantity
+    //         axios
+    //           .patch(`${API_TOKEN}${item.id}`, {
+    //             quantity: updatedQuantity,
+    //           })
+    //           .then((response) => {
+    //             console.log('Quantity updated successfully:', response.data);
+    //           })
+    //           .catch((error) => {
+    //             console.error('Error updating quantity:', error);
+    //           });
+    //       }
+    //     });
 
-        // Clear the cart and reload the page
-        emptyCart();
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error('Error sending message to Telegram:', error);
-      });
+    //     // Clear the cart and reload the page
+    //     emptyCart();
+    //     window.location.reload();
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error sending message to Telegram:', error);
+    //   });
+
+    axios.post('http://localhost:8000/orders/', {
+      order_num: sliced,
+      name,
+      phone_number: tel,
+      products: items,
+      total: total,
+    });
   };
 
   //   const postTest = (e) => {

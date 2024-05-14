@@ -1,12 +1,20 @@
 import Article from '@/components/Article/Article';
 import Beard from '@/components/Beard/Beard';
-import Products from '@/components/Products/Products';
 import Head from 'next/head';
 import React from 'react';
-import { data } from '@/db/data';
 import Inner from '@/components/Inner/Inner';
+import axios from 'axios';
 
-const Tips = () => {
+export async function getServerSideProps() {
+  const { data } = await axios.get(`https://api.morgans-store.uz/products/`);
+  return { props: { data } };
+}
+
+const Tips = ({ data, titleH }) => {
+  const cream = data?.filter((el) => el?.category?.name === 'Кремы для волос');
+  const pomada = data?.filter(
+    (el) => el?.category?.name === 'Помады для волос'
+  );
   return (
     <>
       <Head>
@@ -93,9 +101,9 @@ const Tips = () => {
       </Head>
       <Beard title={'Советы по укладке'} />
       <Article id={1} />
-      <Inner />
+      <Inner titleH={'Кремы для волос'} data={cream} />
       <Article id={2} />
-      <Inner />
+      <Inner titleH={'Помады для волос'} data={pomada} />
     </>
   );
 };

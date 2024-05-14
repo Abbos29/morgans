@@ -11,13 +11,13 @@ const Card = ({ id }) => {
         <Image src='/card-1.jpeg' fill layout='fill' alt='img' />
       </Link>
       <Link className={s.card_catalog} href='/shop'>
-        ПОМАДЫ ДЛЯ УКЛАДКИ
+        Помады для волос
       </Link>
       <Link href={`/single-product/${id}`} className={s.card_name}>
-        Помада для укладки · Средняя фиксация
+        Помада для укладки Morgans Pomade Средняя фиксация / Средний блеск 100 г
       </Link>
       <Link href={`/single-product/${id}`} className={s.card_box}>
-        <b className={s.card_price}>12 000 sum</b>
+        <b className={s.card_price}>27 $</b>
         <button className={s.card_add}>В корзину</button>
       </Link>
     </div>

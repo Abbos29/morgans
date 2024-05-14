@@ -4,19 +4,10 @@ import s from './Products.module.scss';
 import useSWR from 'swr';
 import Link from 'next/link';
 
-const fetcher = (url) =>
-  fetch(url)
-    .then((res) => res.json())
-    .catch((err) => alert(err));
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Products = () => {
-  const { data } = useSWR(
-    'https://api.morgans-store.uz/products/',
-    fetcher
-  );
-
-
-
+  const { data } = useSWR('https://api.morgans-store.uz/products/', fetcher);
 
   return (
     <section className={s.products}>

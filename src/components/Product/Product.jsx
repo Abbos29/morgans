@@ -1,4 +1,3 @@
-import React from 'react';
 import s from './Product.module.scss';
 import Link from 'next/link';
 import { useCart } from 'react-use-cart';
@@ -18,9 +17,14 @@ const Product = ({ el }) => {
         <b>{el?.price} $</b>
         {el?.quantity >= 1 ? (
           isClient && !getItem(el?.id) ? (
-            <button className='btn' onClick={() => addItem(el)}>
-              В корзину
-            </button>
+            <>
+              <button className='btn' onClick={() => addItem(el)}>
+                В корзину
+              </button>
+              {el.peculiarity && (
+                <span className={s.nope}>{el.peculiarity}</span>
+              )}
+            </>
           ) : (
             <button className='btn' onClick={() => removeItem(el?.id)}>
               Отменить

@@ -11,12 +11,16 @@
   transition: all 0.3s;
 }
 
-.empty_cart{
+.empty_cart {
   text-align: center;
   margin: 30% auto;
 }
 
 .logo {
+  @media (max-width: 992px) {
+    display: none;
+  }
+
   img {
     width: 100px;
 
@@ -26,6 +30,19 @@
     @media (max-width: 480px) {
       width: 70px;
     }
+  }
+}
+.logo_2 {
+  display: none;
+  width: max-content;
+
+  margin-right: auto;
+  margin-right: auto;
+  @media (max-width: 992px) {
+    img {
+      display: block;
+    }
+    display: block !important;
   }
 }
 
@@ -59,7 +76,7 @@
     }
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1050px) {
     max-width: 100%;
     width: 100%;
     height: 100vh;
@@ -89,14 +106,39 @@
 
   margin-left: auto;
 
-  input {
-    max-width: 200px;
+  * {
+    text-wrap: wrap;
+  }
+
+  @media (max-width: 992px) {
+    margin-left: 0;
     width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+
+    grid-template-areas:
+      'logo_2 cart burger'
+      'search_box search_box search_box';
+
+    .logo_2 {
+      grid-area: logo_2;
+    }
+    .cart {
+      grid-area: cart;
+    }
+    .burger {
+      grid-area: burger;
+    }
+    .search_box {
+      grid-area: search_box;
+    }
   }
 }
 
 .cart {
   cursor: pointer;
+  text-wrap: nowrap;
 
   svg {
     width: 20px;
@@ -126,7 +168,7 @@
   height: 20px;
   position: relative;
   cursor: pointer;
-  z-index: 6;
+  z-index: 7;
 
   display: none;
 
@@ -213,7 +255,7 @@
   position: fixed;
   top: 0;
   right: -130%;
-  z-index: 3;
+  z-index: 5;
 
   transition: all 0.3s;
 }
@@ -239,6 +281,7 @@
 
 .cart_list {
   padding: 25px;
+  padding-top: 15px;
   height: 73dvh;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -259,6 +302,11 @@
     @media (max-width: 480px) {
       height: 150px;
     }
+    @media (max-width: 370px) {
+      height: 150px;
+      width: 110px;
+    }
+
   }
 }
 
@@ -266,6 +314,9 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  a{
+    color: #1c1c1c;
+  }
 
   h3 {
     font-size: 15px;
@@ -331,7 +382,7 @@
 
   padding: 25px;
   border-top: 1px solid lightgray;
-  h3{
+  h3 {
     margin-top: 5px;
     font-weight: 500;
     font-size: 22px;
@@ -362,10 +413,18 @@
 }
 
 .clear_cart {
-  float: right;
+  // float: right;
+
+  position: relative;
+
+  margin-left: auto;
+  width: max-content;
   background-color: #1f1f1f;
   color: #fff;
   padding: 5px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
+
+  display: block;
+  padding: 7px 14px;
 }

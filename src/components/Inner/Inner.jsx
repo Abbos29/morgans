@@ -1,23 +1,15 @@
 import React from 'react';
-import useSWR from 'swr';
 import Product from '../Product/Product';
 import s from '../Products/Products.module.scss';
 import Link from 'next/link';
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
-
-const Inner = () => {
-  const { data } = useSWR(
-    'https://api.morgans-store.uz/products/',
-    fetcher
-  );
-
+const Inner = ({ data,titleH }) => {
   return (
     <section className='inner'>
       <div className='container'>
         <div className={s.top}>
           <div>
-            <h2>Вся продукция Morgan's</h2>
+            <h2>{titleH}</h2>
             <h3>Покупайте товары с доставкой на дом</h3>
           </div>
 

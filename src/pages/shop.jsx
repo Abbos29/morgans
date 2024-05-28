@@ -1,3 +1,4 @@
+import Beard from '@/components/Beard/Beard';
 import Products from '@/components/Products/Products';
 import Head from 'next/head';
 
@@ -86,7 +87,7 @@ export default function Shop() {
         />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
-
+      <Beard title={'Все товары'} />
       {/* <h1>Продукция</h1> */}
       <Products />
     </>

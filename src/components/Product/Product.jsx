@@ -21,9 +21,6 @@ const Product = ({ el }) => {
               <button className='btn' onClick={() => addItem(el)}>
                 В корзину
               </button>
-              {el.peculiarity && (
-                <span className={s.nope}>{el.peculiarity}</span>
-              )}
             </>
           ) : (
             <button className='btn' onClick={() => removeItem(el?.id)}>
@@ -32,6 +29,9 @@ const Product = ({ el }) => {
           )
         ) : (
           <span className={s.nope}>Нет в наличии</span>
+        )}
+        {el.peculiarity && (
+          <span className={s.nope}>{el.peculiarity}</span>
         )}
       </div>
       <img className={s.img} src={el?.image} alt={el?.name} />

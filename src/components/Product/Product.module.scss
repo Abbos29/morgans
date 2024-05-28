@@ -1,4 +1,5 @@
 .product {
+  width: 100%;
   max-width: 400px;
   position: relative;
   overflow: hidden;
@@ -70,6 +71,11 @@
     background-color: transparent !important;
   }
 
+
+  :nth-child(4) {
+    z-index: 3;
+  }
+
 }
 
 .img {
@@ -86,4 +92,6 @@
   background-color: #1f1f1f;
   color: white;
   border-radius: 4px;
+
+
 }

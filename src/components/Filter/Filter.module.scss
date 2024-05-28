@@ -1,0 +1,60 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    padding: 30px;
+    padding-left: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    h3 {
+        color: #000;
+        font-size: 27px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+
+    a, p {
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        line-height: 1;
+        letter-spacing: 0.15em;
+        color: #b6b6b6;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+   
+}
+
+
+.price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    input {
+        border: 1px solid gray;
+        width: 100%;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid gray; 
+        margin-top: 10px;
+        font-weight: 600;
+    }   
+}

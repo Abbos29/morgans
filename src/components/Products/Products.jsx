@@ -3,6 +3,7 @@ import Product from '../Product/Product';
 import s from './Products.module.scss';
 import useSWR from 'swr';
 import Link from 'next/link';
+import Filter from '../Filter/Filter';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -23,11 +24,16 @@ const Products = () => {
           </Link>
         </div>
 
-        <div className={s.grid}>
+        <div className={s.wrap}>
+          <Filter />
+
+          <div className={s.grid}>
           {data?.results?.map((el, index) => (
             <Product key={index} el={el} />
           ))}
         </div>
+        </div>
+       
       </div>
     </section>
   );

@@ -21,6 +21,12 @@
       gap: 12px;
     }
   }
+
+
+
+  @media (max-width: 480px) {
+      max-width: 100%;
+  }
 }
 
 .box {
@@ -78,6 +84,10 @@
   object-fit: cover;
   width: 100%;
   background-color: #eeedf1;
+
+  @media (max-width: 480px) {
+      max-width: 100%;
+  }
 
   @media (max-width: 480px) {
     // height: 300px;

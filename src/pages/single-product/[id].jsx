@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import React from 'react';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
@@ -10,9 +9,7 @@ import s from './page.module.scss';
 const SingleProduct = ({ data }) => {
   const { getItem, addItem, removeItem } = useCart();
   const isClient = useIsClient();
-  const router = useRouter();
 
-  let singleId = router.query.id;
   return (
     <>
       <Head>

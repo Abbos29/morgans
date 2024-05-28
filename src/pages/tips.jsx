@@ -103,9 +103,9 @@ const Tips = ({ data }) => {
       </Head>
       <Beard title={'Советы по укладке'} />
       <Article id={1} />
-      <Inner titleH={'Кремы для волос'} data={data} />
+      <Inner titleH={'Кремы для волос'} data={cream} />
       <Article id={2} />
-      <Inner titleH={'Помады для волос'} data={data} />
+      <Inner titleH={'Помады для волос'} data={pomada} />
     </>
   );
 };

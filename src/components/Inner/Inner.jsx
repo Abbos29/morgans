@@ -18,7 +18,7 @@ const Inner = ({ data,titleH }) => {
           </Link>
         </div>
         <div className='grid'>
-          {data?.slice(0, 4).map((el, i) => (
+          {data?.results?.slice(0, 4).map((el, i) => (
             <Product key={i} el={el} />
           ))}
         </div>

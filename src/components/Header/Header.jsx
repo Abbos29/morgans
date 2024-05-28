@@ -207,7 +207,7 @@ const Header = () => {
                         items.map((el) => {
                           const priceCount = el?.quantity * el?.price;
                           total += priceCount;
-                          const productData = data?.find(
+                          const productData = data?.results?.find(
                             (product) => product.id === el.id
                           ); // Find the corresponding product data
                           const maxQuantity = productData?.quantity || 0; // Get the maximum available quantity, default to 0 if not found

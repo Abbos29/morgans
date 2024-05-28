@@ -10,9 +10,11 @@ export async function getServerSideProps() {
   return { props: { data } };
 }
 
-const Tips = ({ data, titleH }) => {
-  const cream = data?.filter((el) => el?.category?.name === 'Кремы для волос');
-  const pomada = data?.filter(
+const Tips = ({ data }) => {
+  const cream = data?.results?.filter(
+    (el) => el?.category?.name === 'Кремы для волос'
+  );
+  const pomada = data?.results?.filter(
     (el) => el?.category?.name === 'Помады для волос'
   );
   return (
@@ -101,9 +103,9 @@ const Tips = ({ data, titleH }) => {
       </Head>
       <Beard title={'Советы по укладке'} />
       <Article id={1} />
-      <Inner titleH={'Кремы для волос'} data={cream} />
+      <Inner titleH={'Кремы для волос'} data={data} />
       <Article id={2} />
-      <Inner titleH={'Помады для волос'} data={pomada} />
+      <Inner titleH={'Помады для волос'} data={data} />
     </>
   );
 };

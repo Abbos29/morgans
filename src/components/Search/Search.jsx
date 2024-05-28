@@ -14,7 +14,7 @@ const Search = () => {
   const router = useRouter();
   const wrapperRef = useRef(null);
 
-  const searchData = data?.filter((el) => {
+  const searchData = data?.results?.filter((el) => {
     return el?.name?.toLowerCase().includes(search.toLowerCase());
   });
 

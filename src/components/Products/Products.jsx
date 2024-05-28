@@ -24,7 +24,7 @@ const Products = () => {
         </div>
 
         <div className={s.grid}>
-          {data?.map((el, index) => (
+          {data?.results?.map((el, index) => (
             <Product key={index} el={el} />
           ))}
         </div>

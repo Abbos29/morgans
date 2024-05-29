@@ -13,6 +13,7 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ data }) {
+  const xitData = data?.results?.filter((el) => el?.peculiarity);
   return (
     <>
       <Head>
@@ -103,12 +104,9 @@ export default function Home({ data }) {
       <Wrap />
       <WrapSec />
       <Banner />
-      {/* {data?.peculiarity !== null ? (
-        <Inner titleH={"Хит товары от Morgan's"} data={data} />
-      ) : null} */}
-         {!data?.peculiarity && (
-        <Inner titleH={"Хит товары от Morgan's"} data={data} />
-      )}
+      {xitData?.length ? (
+        <Inner titleH={"Особые товары"} data={xitData} />
+      ) : null}
     </>
   );
 }

@@ -67,6 +67,7 @@ const SingleProduct = ({ data }) => {
               />
 
               <div className={s.box}>
+                <img width={'70px'} src={data?.brand?.image} alt='' />
                 <h6>В наличии: {data?.quantity}</h6>
                 <h1>{data?.name}</h1>
                 <h2>{data?.description}</h2>

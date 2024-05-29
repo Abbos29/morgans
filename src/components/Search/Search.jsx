@@ -11,8 +11,13 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const Search = () => {
   const { data } = useSWR(`${API_TOKEN}`, fetcher);
   const [search, setSearch] = useState('');
+  const [isSearch, isOpenSearch] = useState(false)
   const router = useRouter();
   const wrapperRef = useRef(null);
+
+  const toggleOpenSearch = () => {
+    isOpenSearch(prev => !prev)
+  }
 
   const searchData = data?.results?.filter((el) => {
     return el?.name?.toLowerCase().includes(search.toLowerCase());
@@ -35,45 +40,56 @@ const Search = () => {
     };
   }, []);
 
+
   return (
     <>
       <div className={s.search_box}>
-        <div className={s.search}>
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder='Название товара...'
-            type='text'
-          />
-        </div>
-        <div
-        ref={wrapperRef}
-          className={s.search_wrapper}
-          style={{ display: search.length ? 'block' : 'none' }}
-        >
-          {searchData?.length ? (
-            searchData?.map((el) => {
-              return (
-                <Link
-                  className={s.search_card}
-                  href={`/single-product/${el?.id}`}
-                  key={el?.id}
-                >
-                  <img src={el?.image} alt={el?.name} />
-                  <span>
-                    <p>
-                      {el?.name}
-                    </p>
-                    <b>{el?.price.toLocaleString()} $</b>
-                  </span>
-                </Link>
-              );
-            })
-          ) : (
-            <>
-              <b>Не найдено</b>
-            </>
-          )}
+        <img onClick={toggleOpenSearch} className={s.search_icon} src="https://cdn-icons-png.freepik.com/256/711/711319.png?semt=ais_hybrid" alt="icon" />
+
+
+        <div className={isSearch ? `${s.search_wrap} open-search` : `${s.search_wrap}`}>
+          <img onClick={toggleOpenSearch} className={s.close_icon} src="https://cdn-icons-png.freepik.com/256/32/32178.png?semt=ais_hybrid" alt="close-icon" />
+
+          <div className={s.search_iner}>
+            <div className={s.search}>
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder='Название товара...'
+                type='text'
+              />
+
+            </div>
+            <div
+              ref={wrapperRef}
+              className={s.search_wrapper}
+              style={{ display: search.length ? 'block' : 'none' }}
+            >
+              {searchData?.length ? (
+                searchData?.map((el) => {
+                  return (
+                    <Link
+                      className={s.search_card}
+                      href={`/single-product/${el?.id}`}
+                      key={el?.id}
+                    >
+                      <img src={el?.image} alt={el?.name} />
+                      <span>
+                        <p>
+                          {el?.name}
+                        </p>
+                        <b>{el?.price.toLocaleString()} $</b>
+                      </span>
+                    </Link>
+                  );
+                })
+              ) : (
+                <>
+                  <b>Не найдено</b>
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>

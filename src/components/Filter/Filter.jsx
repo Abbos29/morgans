@@ -34,7 +34,7 @@ const Filter = () => {
             <div className={s.menu}>
               {categories?.results?.map((el) => {
                 return (
-                  <Link href={`/category/${el?.id}`}>
+                  <Link key={el.id} href={`/category/${el?.id}`}>
                     {el?.name} <span>({el?.products?.length})</span>
                   </Link>
                 );
@@ -47,7 +47,7 @@ const Filter = () => {
             <div className={s.menu}>
               {brands?.results?.map((el) => {
                 return (
-                  <Link href={`/brand/${el?.id}`}>
+                  <Link key={el.id} href={`/brand/${el?.id}`}>
                     {el?.name} <span>({el?.products?.length})</span>
                   </Link>
                 );

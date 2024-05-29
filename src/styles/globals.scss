@@ -24,7 +24,8 @@ body {
   padding-top: 100px;
 
   &:has(.menu-open),
-  &:has(.cart-open) {
+  &:has(.cart-open),
+  &:has(.open-search) {
     overflow: hidden;
 
     .cart_main {
@@ -117,6 +118,10 @@ button {
   right: 0 !important;
 }
 
+.open-search {
+  top: 0;
+
+}
 .burger-open {
   span {
     &:nth-child(1) {

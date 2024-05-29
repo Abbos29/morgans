@@ -17,10 +17,6 @@
 }
 
 .logo {
-  @media (max-width: 992px) {
-    display: none;
-  }
-
   img {
     width: 100px;
 
@@ -30,19 +26,6 @@
     @media (max-width: 480px) {
       width: 70px;
     }
-  }
-}
-.logo_2 {
-  display: none;
-  width: max-content;
-
-  margin-right: auto;
-  margin-right: auto;
-  @media (max-width: 992px) {
-    img {
-      display: block;
-    }
-    display: block !important;
   }
 }
 
@@ -74,9 +57,11 @@
       // color: red;
       border-bottom: 1px solid #1c1c1c;
     }
+
+    
   }
 
-  @media (max-width: 1050px) {
+  @media (max-width: 992px) {
     max-width: 100%;
     width: 100%;
     height: 100vh;
@@ -97,6 +82,10 @@
 
     transition: all 0.3s;
   }
+
+  @media (max-width: 1100px) {
+    gap: 20px;
+  }
 }
 
 .box {
@@ -106,43 +95,22 @@
 
   margin-left: auto;
 
-  * {
-    text-wrap: wrap;
-  }
-
-  @media (max-width: 992px) {
-    margin-left: 0;
+  input {
+    max-width: 200px;
     width: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-
-    grid-template-areas:
-      'logo_2 cart burger'
-      'search_box search_box search_box';
-
-    .logo_2 {
-      grid-area: logo_2;
-    }
-    .cart {
-      grid-area: cart;
-    }
-    .burger {
-      grid-area: burger;
-    }
-    .search_box {
-      grid-area: search_box;
-    }
   }
 }
 
 .cart {
   cursor: pointer;
-  text-wrap: nowrap;
 
   svg {
     width: 20px;
   }
+}
+
+.lengts {
+  white-space: nowrap;
 }
 
 // .burger {
@@ -164,11 +132,11 @@
 // }
 
 .burger {
-  width: 30px;
+  min-width: 30px;
   height: 20px;
   position: relative;
   cursor: pointer;
-  z-index: 7;
+  z-index: 6;
 
   display: none;
 
@@ -255,7 +223,7 @@
   position: fixed;
   top: 0;
   right: -130%;
-  z-index: 5;
+  z-index: 3;
 
   transition: all 0.3s;
 }
@@ -281,7 +249,6 @@
 
 .cart_list {
   padding: 25px;
-  padding-top: 15px;
   height: 73dvh;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -302,11 +269,6 @@
     @media (max-width: 480px) {
       height: 150px;
     }
-    @media (max-width: 370px) {
-      height: 150px;
-      width: 110px;
-    }
-
   }
 }
 
@@ -314,27 +276,51 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  a{
-    color: #1c1c1c;
-  }
 
   h3 {
     font-size: 15px;
     letter-spacing: 0.8px;
-    line-height: 1.1;
+    // line-height: 1.1;
+
+    max-height: 6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    line-height: 1.2;
+    text-wrap: wrap;
   }
   p {
     font-size: 13px;
     opacity: 0.7;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
       sans-serif;
   }
   b {
     font-weight: 400;
     padding-bottom: 15px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
       sans-serif;
 
     font-size: 13px;
@@ -413,18 +399,10 @@
 }
 
 .clear_cart {
-  // float: right;
-
-  position: relative;
-
-  margin-left: auto;
-  width: max-content;
+  float: right;
   background-color: #1f1f1f;
   color: #fff;
   padding: 5px;
   cursor: pointer;
-  font-size: 16px;
-
-  display: block;
-  padding: 7px 14px;
+  font-size: 15px;
 }

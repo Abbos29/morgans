@@ -1,60 +1,62 @@
 .wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 
-    padding: 30px;
-    padding-left: 0;
+  padding: 30px;
+  padding-left: 0;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 
-    h3 {
-        color: #000;
-        font-size: 27px;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
+  h3 {
+    color: #000;
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
 
-    a, p {
-        font-family: "DM Sans", sans-serif;
-        font-size: 13px;
-        line-height: 1;
-        letter-spacing: 0.15em;
-        color: #b6b6b6;
-        text-transform: uppercase;
-        font-weight: 500;
-    }
-
-   
+  a,
+  p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    color: #b6b6b6;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 }
 
-
 .price {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 
-    input {
-        border: 1px solid gray;
-        width: 100%;
-        padding: 5px;
-    }
-    button {
-        width: 100%;
-        padding: 5px;
-        border: 1px solid gray; 
-        margin-top: 10px;
-        font-weight: 600;
-    }   
+  input {
+    border: 1px solid gray;
+    width: 100%;
+    padding: 5px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    border: none;
+    color: #fff;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.122);
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 17px;
+  }
 }

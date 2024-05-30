@@ -12,6 +12,7 @@ const fetcherB = (url) => fetch(url).then((res) => res.json());
 const Filter = () => {
   const { data: categories } = useSWR(`${API_TOKEN_CATEGORY}`, fetcherC);
   const { data: brands } = useSWR(`${API_TOKEN_BRANDS}`, fetcherB);
+
   return (
     <>
       <div className={s.filter}>

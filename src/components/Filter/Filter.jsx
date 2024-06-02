@@ -21,10 +21,10 @@ const Filter = () => {
             <h3>По цене</h3>
             <div className={s.price}>
               <label htmlFor=''>От</label>
-              <input type='text' />
+              <input type='number' />
 
               <label htmlFor=''>До</label>
-              <input type='text' />
+              <input type='number' />
 
               <button>Найти</button>
             </div>

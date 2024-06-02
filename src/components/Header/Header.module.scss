@@ -399,10 +399,16 @@
 }
 
 .clear_cart {
-  float: right;
+  // float: right;
   background-color: #1f1f1f;
   color: #fff;
-  padding: 5px;
+  padding: 5px 8px;
   cursor: pointer;
+  display: block;
+  margin-left: auto;
+  width: max-content;
+
   font-size: 15px;
+  position: relative;
+  top: -8px;
 }

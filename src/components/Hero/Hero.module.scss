@@ -17,7 +17,7 @@
 
     transition: all .3s;
 
-    animation: bg 5s infinite alternate-reverse linear;
+    animation: bg 9s infinite alternate-reverse linear;
 
     @media (max-width: 992px) {
         background-size: cover !important;
@@ -66,8 +66,12 @@
         background-image: url(/banner-2.jpg);
         background-size: 120%;
     }
-    100% {
+    50% {
         background-image: url(/banner-3.jpg);
-        background-size: 150%;
+        background-size: 140%;
+    }
+    100% {
+        background-image: url(/banner-4.jpg);
+        background-size: 110%;
     }
 }

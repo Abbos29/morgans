@@ -9,8 +9,7 @@ const Footer = () => {
         <div className={s.footer__top}>
           <img src='/logo-white.png' alt='Logo' />
           <h1>
-            Онлайн-магазин Morgan's является официальным <br /> дистрибьютором
-            Morgan’s Pomade Company Ltd в Узбекистане
+            Онлайн-магазин Trueman Store является официальным <br /> дистрибьютором премиальной мужской косметики в Узбекистане
           </h1>
         </div>
         <div className={s.footer__wrapper}>
@@ -33,7 +32,7 @@ const Footer = () => {
             <a style={{ fontFamily: 'sans-serif' }} href='tel:+998332223390'>
               +998 33 222 33 90
             </a>
-            <a href='mailto:admin@morgans.uz'>admin@morgans.uz</a>
+            <a href='mailto:admin@morgans.uz'>admin@trueman.uz</a>
             <p className={s.footer__address}>
               Ташкент, пр.
               Олой Бозори, 59/7
@@ -46,8 +45,8 @@ const Footer = () => {
           <a target='_blank' href='https://www.instagram.com/morgans_uz/'>
             Наш Instagram
           </a>
-          <Link href={'/'}>Конфиденциальность</Link>
-          <p>© 2024 Morgan’s | Clanz</p>
+          <Link href={'https://t.me/abbos_uz1'}>Developed by Abbos Valiev</Link>
+          <p>© 2024 Trueman Store</p>
         </div>
       </div>
     </footer>

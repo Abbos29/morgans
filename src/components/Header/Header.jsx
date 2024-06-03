@@ -114,7 +114,7 @@ const Header = () => {
       <div className='container'>
         <nav className={s.nav}>
           <Link className={`${s.logo}`} href='/'>
-            <img src='/logo.png' alt='logo' />
+            <img src='/Logo/SVG/Trueman_logo-03.svg' alt='logo' />
           </Link>
 
           <div className={`${s.menu} ${isMenu ? 'menu-open' : ''}`}>

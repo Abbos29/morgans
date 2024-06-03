@@ -76,11 +76,13 @@
       font-size: 15px;
       display: block;
       width: max-content;
+      opacity: 0.6;
       &:hover {
         color: #e6e6e6;
       }
     }
     p {
+      opacity: 0.6;
       color: #bbb;
       font-size: 15px;
     }

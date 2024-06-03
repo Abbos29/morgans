@@ -12,19 +12,25 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const Products = () => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
+  const { price_min, price_max } = router.query;
 
+  const minPrice = price_min || '';
+  const maxPrice = price_max || '';
   // Get current page from query params on initial load
   useEffect(() => {
     const page = parseInt(router.query.page, 10) || 1;
     setCurrentPage(page);
-  }, [router.query.page]);
+  }, [router.query.page, minPrice, maxPrice]);
 
-  const url = `https://api.morgans-store.uz/products/?page=${currentPage}`;
+  const url = `https://api.morgans-store.uz/products/?page=${currentPage}&price_min=${minPrice}&price_max=${maxPrice}`;
   const { data } = useSWR(url, fetcher);
 
   const handlePageChange = (event, page) => {
     setCurrentPage(page);
-    router.push({ pathname: router.pathname, query: { ...router.query, page } });
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, page },
+    });
   };
 
   return (

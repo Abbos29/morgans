@@ -120,7 +120,6 @@ button {
 
 .open-search {
   top: 0;
-
 }
 .burger-open {
   span {
@@ -193,6 +192,18 @@ button {
     // opacity: 0;
     transition: all 0.3s;
   }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 @keyframes fade {

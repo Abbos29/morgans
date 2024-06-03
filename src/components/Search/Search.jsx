@@ -3,34 +3,29 @@ import s from './Search.module.scss';
 import useSWR from 'swr';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useDebounceValue } from 'usehooks-ts';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Search = () => {
-  const [debouncedValue, setValue] = useDebounceValue('', 500);
+  const [search, setSearch] = useState('');
   const [isSearch, isOpenSearch] = useState(false);
   const router = useRouter();
   const wrapperRef = useRef(null);
-  const API_TOKEN = `https://api.morgans-store.uz/products/?search=${debouncedValue}`;
+  const API_TOKEN = `https://api.morgans-store.uz/products/?search=${search}`;
   const { data } = useSWR(`${API_TOKEN}`, fetcher);
 
   const toggleOpenSearch = () => {
     isOpenSearch((prev) => !prev);
   };
 
-  // const searchData = data?.results?.filter((el) => {
-  //   return el?.name?.toLowerCase().includes(search.toLowerCase());
-  // });
-
   useEffect(() => {
-    setValue('');
+    setSearch('');
   }, [router]);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        setValue('');
+        setSearch('');
       }
     }
 
@@ -65,8 +60,8 @@ const Search = () => {
           <div className={s.search_iner}>
             <div className={s.search}>
               <input
-                value={debouncedValue}
-                onChange={(e) => setValue(e.target.value)}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 placeholder='Название товара...'
                 type='text'
               />
@@ -74,10 +69,10 @@ const Search = () => {
             <div
               ref={wrapperRef}
               className={s.search_wrapper}
-              style={{ display: debouncedValue.length ? 'block' : 'none' }}
+              style={{ display: search.length ? 'block' : 'none' }}
             >
-              {data?.results?.length ? (
-                data?.results?.map((el) => {
+              {data?.length ? (
+                data?.map((el) => {
                   return (
                     <Link
                       className={s.search_card}

@@ -14,7 +14,7 @@ const WrapSec = () => {
                         <h3>Аксессуары</h3>
                         {/* <h4>Легендарные помады для укладки</h4> */}
                         {/* <a className="btn" href="">Смотреть аксессуары</a> */}
-                        <Link className='btn' href={'/brand/2'}>Смотреть продукцию</Link>
+                        <Link className='btn' href={'/shop?brandId=2'}>Смотреть продукцию</Link>
 
                     </div>
 

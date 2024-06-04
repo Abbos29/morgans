@@ -75,6 +75,7 @@ const Search = () => {
                 data?.map((el) => {
                   return (
                     <Link
+                    onClick={toggleOpenSearch}
                       className={s.search_card}
                       href={`/single-product/${el?.id}`}
                       key={el?.id}

@@ -7,12 +7,14 @@ import { useIsClient } from 'usehooks-ts';
 import axios from 'axios';
 import useSWR from 'swr';
 import Search from '../Search/Search';
+import { useRouter } from 'next/router';
 
 const API_TOKEN = 'https://api.morgans-store.uz/products/';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Header = () => {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [tel, setTel] = useState('');
   const [isMenu, setIsMenu] = useState(false);
@@ -47,6 +49,10 @@ const Header = () => {
 
   let randomNum = Math.random();
   let sliced = randomNum.toString().slice(2, -1);
+
+  useEffect(() => {
+    setIsMenu(false);
+  }, [router]);
 
   const postTest = (e) => {
     e.preventDefault();

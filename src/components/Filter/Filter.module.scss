@@ -28,13 +28,14 @@
 
   a,
   p {
-    font-family: "DM Sans", sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
     line-height: 1;
     letter-spacing: 0.15em;
     color: #b6b6b6;
     text-transform: uppercase;
     font-weight: 500;
+    cursor: pointer;
   }
 }
 
@@ -60,3 +61,4 @@
     font-size: 17px;
   }
 }
+

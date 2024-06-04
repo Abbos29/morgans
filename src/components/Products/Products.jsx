@@ -94,15 +94,17 @@ const Products = () => {
                 </div>
               )}
             </div>
-            <div className={s.pagination}>
-              <Stack spacing={2}>
-                <Pagination
-                  count={data?.total_pages || 1}
-                  page={currentPage}
-                  onChange={handlePageChange}
-                />
-              </Stack>
-            </div>
+            {data?.results?.length ? (
+              <div className={s.pagination}>
+                <Stack spacing={2}>
+                  <Pagination
+                    count={data?.total_pages || 1}
+                    page={currentPage}
+                    onChange={handlePageChange}
+                  />
+                </Stack>
+              </div>
+            ) : null}
           </div>
         )}
       </section>

@@ -9,7 +9,8 @@ const Hero = () => {
                 <div className={s.wrapper}>
                     <div className={s.box}>
                         <p>Добро пожаловать</p>
-                        <h1>Онлайн-магазин <br /> Morgan's Pomades UK</h1>
+                        {/* <h1>Онлайн-магазин <br /> Morgan's Pomades UK</h1> */}
+                        <h1>Онлайн-магазин <br /> Trueman Store</h1>
                         <h2>Официальный дистрибьютер премиальной мужской косметики в Узбекистане</h2>
                         <Link href={'/shop'} className="btn">Продукция</Link>
                     </div>

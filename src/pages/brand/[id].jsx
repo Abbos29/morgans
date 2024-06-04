@@ -1,15 +1,12 @@
+import Beard from '@/components/Beard/Beard';
 import axios from 'axios';
-import Head from 'next/head';
 import React from 'react';
-import { useCart } from 'react-use-cart';
-import { useIsClient } from 'usehooks-ts';
+import s from '@/components/Products/Products.module.scss';
+import Product from '@/components/Product/Product';
+import Filter from '@/components/Filter/Filter';
+import Head from 'next/head';
 
-import s from './page.module.scss';
-
-const SingleProduct = ({ data }) => {
-  const { getItem, addItem, removeItem } = useCart();
-  const isClient = useIsClient();
-
+const SingleBrand = ({ data }) => {
   return (
     <>
       <Head>
@@ -45,7 +42,7 @@ const SingleProduct = ({ data }) => {
         <meta property='og:title' content={data?.name} />
         <meta property='og:url' content='https://trueman.uz' />
         <meta property='og:type' content='website' />
-        <meta property='og:description' content={data?.desc} />
+        <meta property='og:description' content={data?.name} />
         <meta property='og:image' content={data?.image} />
         <meta property='og:image:url' content={data?.image} />
         <meta property='og:image:secure_url' content={data?.image} />
@@ -56,57 +53,34 @@ const SingleProduct = ({ data }) => {
         <meta name='twitter:image' content={data?.image} />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
-      <div>
-        <section className={s.page}>
-          <div className='container'>
-            <div className={s.wrapper}>
-              <img
-                className={s.img}
-                src={data?.image}
-                alt={data?.description}
-              />
+      <Beard title={data?.name} />
+      <section className={s.products}>
+        <div className='container'>
+          <div className={s.wrap}>
+            <Filter />
 
-              <div className={s.box}>
-                <img width={'70px'} src={data?.brand?.image} alt='' />
-                <h6>В наличии: {data?.quantity}</h6>
-                <h1>{data?.name}</h1>
-                <h2>{data?.description}</h2>
-                <p>
-                  {data?.price} <span>$</span>
-                </p>
-                <b>{data?.wvq}</b>
-
-                {data?.quantity >= 1 ? (
-                  isClient && !getItem(data?.id) ? (
-                    <button className='btn' onClick={() => addItem(data)}>
-                      В корзину
-                    </button>
-                  ) : (
-                    <button
-                      className='btn'
-                      onClick={() => removeItem(data?.id)}
-                    >
-                      Отменить
-                    </button>
-                  )
-                ) : (
-                  <span className={s.single_nope}>Нет в наличии</span>
-                )}
-              </div>
+            <div className={s.grid}>
+              {data?.products?.length ? (
+                data?.products?.map((el, index) => (
+                  <Product key={index} el={el} />
+                ))
+              ) : (
+                <>
+                  <h1>Ничего не найдено...</h1>
+                </>
+              )}
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </>
   );
 };
-
 export async function getServerSideProps(context) {
-  const singleId = context.params.id;
+  const singleBrandId = context.params.id;
   const { data } = await axios.get(
-    `https://api.morgans-store.uz/products/${singleId}`
+    `https://api.morgans-store.uz/brands/${singleBrandId}`
   );
   return { props: { data } };
 }
-
-export default SingleProduct;
+export default SingleBrand;

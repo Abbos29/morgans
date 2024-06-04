@@ -18,13 +18,13 @@
 
 .logo {
   img {
-    width: 100px;
+    width: 150px;
 
     @media (max-width: 768px) {
-      width: 90px;
+      width: 130px;
     }
     @media (max-width: 480px) {
-      width: 70px;
+      width: 120px;
     }
   }
 }

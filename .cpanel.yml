@@ -1,0 +1,8 @@
+deployment:
+  tasks:
+    - export DEPLOYMENT_SOURCE=$DEPLOYMENT_SOURCE
+    - export DEPLOYMENT_TARGET=$DEPLOYMENT_TARGET
+    - cd $DEPLOYMENT_SOURCE
+    - npm install
+    - npm run build
+    - rsync -av --delete $DEPLOYMENT_SOURCE/ $DEPLOYMENT_TARGET/

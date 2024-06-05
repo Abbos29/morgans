@@ -1,3 +1,5 @@
+// header jsx
+
 // import React from 'react'
 import Link from 'next/link';
 import s from './Header.module.scss';

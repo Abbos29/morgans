@@ -8,7 +8,7 @@ import axios from 'axios';
 import Head from 'next/head';
 
 export async function getServerSideProps() {
-  const { data } = await axios.get(`https://api.morgans-store.uz/products/`);
+  const { data } = await axios.get(`https://api.trueman.uz/products/`);
   return { props: { data } };
 }
 

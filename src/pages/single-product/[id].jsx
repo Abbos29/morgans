@@ -104,7 +104,7 @@ const SingleProduct = ({ data }) => {
 export async function getServerSideProps(context) {
   const singleId = context.params.id;
   const { data } = await axios.get(
-    `https://api.morgans-store.uz/products/${singleId}`
+    `https://api.trueman.uz/products/${singleId}`
   );
   return { props: { data } };
 }

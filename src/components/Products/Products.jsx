@@ -25,7 +25,7 @@ const Products = () => {
     setCurrentPage(page);
   }, [router.query.page]);
 
-  const url = `https://api.morgans-store.uz/products/?page=${currentPage}&price_min=${minPrice}&price_max=${maxPrice}&category=${currentCategoryId}&brand=${currentBrandId}`;
+  const url = `https://api.trueman.uz/products/?page=${currentPage}&price_min=${minPrice}&price_max=${maxPrice}&category=${currentCategoryId}&brand=${currentBrandId}`;
   const { data, isLoading } = useSWR(url, fetcher);
 
   const handlePageChange = (event, page) => {

@@ -6,7 +6,7 @@ import Inner from '@/components/Inner/Inner';
 import axios from 'axios';
 
 export async function getServerSideProps() {
-  const { data } = await axios.get(`https://api.morgans-store.uz/products/`);
+  const { data } = await axios.get(`https://api.trueman.uz/products/`);
   return { props: { data } };
 }
 

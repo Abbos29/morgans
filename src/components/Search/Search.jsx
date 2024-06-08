@@ -11,7 +11,7 @@ const Search = () => {
   const [isSearch, isOpenSearch] = useState(false);
   const router = useRouter();
   const wrapperRef = useRef(null);
-  const API_TOKEN = `https://api.morgans-store.uz/products/?search=${search}`;
+  const API_TOKEN = `https://api.trueman.uz/products/?search=${search}`;
   const { data } = useSWR(`${API_TOKEN}`, fetcher);
 
   const toggleOpenSearch = () => {

@@ -3,8 +3,8 @@ import s from './Filter.module.scss';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
 
-const API_TOKEN_CATEGORY = 'https://api.morgans-store.uz/categories/';
-const API_TOKEN_BRANDS = 'https://api.morgans-store.uz/brands/';
+const API_TOKEN_CATEGORY = 'https://api.trueman.uz/categories/';
+const API_TOKEN_BRANDS = 'https://api.trueman.uz/brands/';
 
 const fetcherC = (url) => fetch(url).then((res) => res.json());
 const fetcherB = (url) => fetch(url).then((res) => res.json());

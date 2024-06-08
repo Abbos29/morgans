@@ -11,7 +11,7 @@ import useSWR from 'swr';
 import Search from '../Search/Search';
 import { useRouter } from 'next/router';
 
-const API_TOKEN = 'https://api.morgans-store.uz/products/';
+const API_TOKEN = 'https://api.trueman.uz/products/';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -61,7 +61,7 @@ const Header = () => {
 
     // Prepare the message for Telegram
     axios
-      .post('https://api.morgans-store.uz/orders/', {
+      .post('https://api.trueman.uz/orders/', {
         order_num: sliced,
         name,
         phone_number: tel,

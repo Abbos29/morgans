@@ -22,10 +22,8 @@
     }
   }
 
-
-
   @media (max-width: 480px) {
-      max-width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -86,12 +84,11 @@
   background-color: #eeedf1;
 
   @media (max-width: 480px) {
-      max-width: 100%;
+    max-width: 100%;
   }
 
   @media (max-width: 480px) {
     // height: 300px;
-    
   }
 }
 
@@ -103,4 +100,33 @@
   background-color: #1f1f1f;
   color: white;
   border-radius: 4px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  button {
+    margin-top: 0;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  // padding: 10px;
+  border: 1px solid lightgray;
+  button {
+    background: none;
+    padding: 18px 15px;
+    font-size: 18px;
+    line-height: 0px;
+  }
+
+  p {
+    font-size: 14px;
+    padding: 4px;
+    font-weight: 500;
+  }
 }

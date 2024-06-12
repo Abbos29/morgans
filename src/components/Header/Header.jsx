@@ -69,7 +69,7 @@ const Header = () => {
         setName(''); // Clear the name input
         setTel(''); // Clear the phone input
         cartHandle()
-        setTimeout(() => setShowThankYou(false), 5000); 
+        setTimeout(() => setShowThankYou(false), 5000);
       });
   };
 
@@ -179,10 +179,14 @@ const Header = () => {
                           if (el?.quantity >= 1) {
                             return (
                               <div className={s.cart_item} key={el.id}>
-                                <img src={el.image} alt='img' />
+                                <Link href={`/single-product/${el.id}`}>
+                                  <img src={el.image} alt='img' />
+                                </Link>
 
                                 <div className={s.cart_box}>
-                                  <h3>{el.name}</h3>
+                                  <Link href={`/single-product/${el.id}`}>
+                                    <h3>{el.name}</h3>
+                                  </Link>
                                   <p>{el.weight}</p>
                                   <b>
                                     {priceCount?.toLocaleString()}

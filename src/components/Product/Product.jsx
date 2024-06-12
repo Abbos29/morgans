@@ -6,6 +6,7 @@ import { useIsClient } from 'usehooks-ts';
 const Product = ({ el }) => {
   const { getItem, addItem, removeItem } = useCart();
   const isClient = useIsClient();
+  
 
   return (
     <div className={s.product}>
@@ -33,6 +34,20 @@ const Product = ({ el }) => {
         {el.peculiarity && (
           <span className={s.nope}>{el.peculiarity}</span>
         )}
+
+        <div className={s.flex}>
+          <div className={s.row}>
+            <button onClick={() => updateItemQuantity(el.id, el.quantity - 1)}>-</button>
+            <p>{el?.quantity}</p>
+            <button onClick={() => updateItemQuantity(el.id, el.quantity + 1)}>+</button>
+          </div>
+
+          <button onClick={() => removeItem(el?.id)} className={s.remove}>
+            Remove
+          </button>
+        </div>
+
+
       </div>
       <img className={s.img} src={el?.image} alt={el?.name} />
     </div>

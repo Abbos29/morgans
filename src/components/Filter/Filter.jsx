@@ -31,8 +31,6 @@ const Filter = () => {
       ...router.query,
       price_min: minPrice,
       price_max: maxPrice,
-      categoryId: category,
-      brandId: brand,
     };
     router.push({
       pathname: '/shop',

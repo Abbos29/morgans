@@ -35,7 +35,7 @@ const Product = ({ el }) => {
           <span className={s.nope}>{el.peculiarity}</span>
         )}
 
-        <div className={s.flex}>
+        {/* <div className={s.flex}>
           <div className={s.row}>
             <button onClick={() => updateItemQuantity(el.id, el.quantity - 1)}>-</button>
             <p>{el?.quantity}</p>
@@ -45,7 +45,7 @@ const Product = ({ el }) => {
           <button onClick={() => removeItem(el?.id)} className={s.remove}>
             Remove
           </button>
-        </div>
+        </div> */}
 
 
       </div>

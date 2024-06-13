@@ -30,7 +30,7 @@ const Footer = () => {
           <div className={s.item}>
             <h3>Связь с нами</h3>
             <a style={{ fontFamily: 'sans-serif' }} href='tel:+998332223390'>
-              +998 33 222 33 90
+              +998 33 131 33 03
             </a>
             <a href='mailto:admin@morgans.uz'>admin@trueman.uz</a>
             <p className={s.footer__address}>
@@ -39,6 +39,7 @@ const Footer = () => {
               <br />
               Республика Узбекистан
             </p>
+            <p>Для оптовой покупке <br /> обращайтесь в <a target='_blank' href="https://t.me/yuri91clanz" style={{display:"inline-block"}}>@yuri91clanz</a></p>
           </div>
         </div>
         <div className={s.footer__end}>

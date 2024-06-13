@@ -5,7 +5,9 @@
 .wrapper {
     color: #fff;
     height: 80dvh;
-    background-image: url(/banner-1.jpg);
+    // background-image: url(/banner-1.jpg);
+    background-image: url(/banner/ARM04142.webp);
+
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
@@ -17,7 +19,7 @@
 
     transition: all .3s;
 
-    animation: bg 9s infinite alternate-reverse linear;
+    animation: bg 35s infinite alternate-reverse linear;
 
     @media (max-width: 992px) {
         background-size: cover !important;
@@ -68,19 +70,27 @@
 
 @keyframes bg {
     0% {
-        background-image: url(/banner-1.jpg);
+        background-image: url(/banner/ARM04142.webp);
         // background-size: 100%;
     }
-    50% {
-        background-image: url(/banner-2.jpg);
+    20% {
+        background-image: url(/banner/ARM04148.webp);
+        // background-size: 140%;
+    }
+    40% {
+        background-image: url(/banner/ARM04156.webp);
+        // background-size: 140%;
+    }
+    60% {
+        background-image: url(/banner/ARM04162.webp);
         // background-size: 120%;
     }
-    50% {
-        background-image: url(/banner-3.jpg);
+    80% {
+        background-image: url(/banner/ARM04169.webp);
         // background-size: 140%;
     }
     100% {
-        background-image: url(/banner-4.jpg);
+        background-image: url(/banner/ARM04172.webp);
         // background-size: 110%;
     }
 }

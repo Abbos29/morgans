@@ -6,7 +6,7 @@ import { useIsClient } from 'usehooks-ts';
 const Product = ({ el }) => {
   const { getItem, addItem, removeItem } = useCart();
   const isClient = useIsClient();
-  
+
 
   return (
     <div className={s.product}>

@@ -68,7 +68,7 @@ const Header = () => {
         setShowThankYou(true);
         setName(''); // Clear the name input
         setTel(''); // Clear the phone input
-        cartHandle()
+        cartHandle();
         setTimeout(() => setShowThankYou(false), 5000);
       });
   };
@@ -112,6 +112,10 @@ const Header = () => {
       };
     }
   }, [isSmallScreen]);
+
+  const handleProductClick = () => {
+    cartHandle();
+  };
 
   return (
     <header className={`${s.header} ${isScrolled ? 'xscroll' : ''}`} id='header'>
@@ -179,14 +183,18 @@ const Header = () => {
                           if (el?.quantity >= 1) {
                             return (
                               <div className={s.cart_item} key={el.id}>
-                                <Link href={`/single-product/${el.id}`}>
-                                  <img src={el.image} alt='img' />
-                                </Link>
+                                <div onClick={handleProductClick}>
+                                  <Link href={`/single-product/${el.id}`}>
+                                    <img src={el.image} alt='img' />
+                                  </Link>
+                                </div>
 
                                 <div className={s.cart_box}>
-                                  <Link href={`/single-product/${el.id}`}>
-                                    <h3>{el.name}</h3>
-                                  </Link>
+                                  <div onClick={handleProductClick}>
+                                    <Link href={`/single-product/${el.id}`}>
+                                      <h3>{el.name}</h3>
+                                    </Link>
+                                  </div>
                                   <p>{el.weight}</p>
                                   <b>
                                     {priceCount?.toLocaleString()}

@@ -70,6 +70,8 @@ const Filter = () => {
     router.push('/shop');
   };
 
+  console.log(category);
+
   return (
     <div className={s.filter}>
       <div className={s.wrap}>
@@ -78,7 +80,7 @@ const Filter = () => {
           <div className={s.menu}>
             {categories?.results?.map((el) => (
               <div key={el.id} onClick={() => handleCategoryChange(el.id)}>
-                <p>
+                <p className={el?.id == category ? s.categoryActive : null}>
                   {el.name} <span>({el.products?.length})</span>
                 </p>
               </div>
@@ -91,7 +93,7 @@ const Filter = () => {
           <div className={s.menu}>
             {brands?.results?.map((el) => (
               <div key={el.id} onClick={() => handleBrandChange(el.id)}>
-                <p>
+                <p className={el?.id == brand ? s.categoryActive : null}>
                   {el.name} <span>({el.products?.length})</span>
                 </p>
               </div>

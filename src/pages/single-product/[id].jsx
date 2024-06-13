@@ -12,6 +12,9 @@ const SingleProduct = ({ data }) => {
 
   const [quantity, setQuantity] = useState(1);
 
+  const maxQuantity = data?.quantity || 0;
+  const disableIncrease = quantity >= maxQuantity;
+
   return (
     <>
       <Head>
@@ -78,7 +81,10 @@ const SingleProduct = ({ data }) => {
                           -
                         </button>
                         <span>{quantity}</span>
-                        <button onClick={() => setQuantity(quantity + 1)}>
+                        <button
+                          disabled={disableIncrease}
+                          onClick={() => setQuantity(quantity + 1)}
+                        >
                           +
                         </button>
                       </div>

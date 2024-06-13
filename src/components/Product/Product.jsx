@@ -11,6 +11,9 @@ const Product = ({ el }) => {
 
   const [quantity, setQuantity] = useState(1);
 
+  const maxQuantity = el?.quantity || 0;
+  const disableIncrease = quantity >= maxQuantity;
+
   return (
     <div className={s.product}>
       <div className={s.box}>
@@ -30,7 +33,12 @@ const Product = ({ el }) => {
                   -
                 </button>
                 <span>{quantity}</span>
-                <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                <button
+                  disabled={disableIncrease}
+                  onClick={() => setQuantity(quantity + 1)}
+                >
+                  +
+                </button>
               </div>
               <button className='btn' onClick={() => addItem(el, quantity)}>
                 В корзину

@@ -8,7 +8,8 @@ import Link from 'next/link';
 const Product = ({ el }) => {
   const { getItem, addItem, removeItem } = useCart();
   const isClient = useIsClient();
-  
+
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div className={s.product}>

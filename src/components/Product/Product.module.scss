@@ -61,7 +61,8 @@
   }
   b {
     font-size: 18px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+      sans-serif;
   }
 
   button {
@@ -128,5 +129,23 @@
     font-size: 14px;
     padding: 4px;
     font-weight: 500;
+  }
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+
+  button {
+    border-radius: 5px !important;
+    background-color: black !important;
+    color: white !important;
+    margin-top: 0 !important;
+
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 }

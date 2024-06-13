@@ -1,12 +1,14 @@
+import { useState } from 'react';
 import s from './Product.module.scss';
-import Link from 'next/link';
+
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
+import Link from 'next/link';
 
 const Product = ({ el }) => {
   const { getItem, addItem, removeItem } = useCart();
   const isClient = useIsClient();
-
+  
 
   return (
     <div className={s.product}>
@@ -19,7 +21,17 @@ const Product = ({ el }) => {
         {el?.quantity >= 1 ? (
           isClient && !getItem(el?.id) ? (
             <>
-              <button className='btn' onClick={() => addItem(el)}>
+              <div className={s.quantity}>
+                <button
+                  onClick={() => setQuantity(quantity - 1)}
+                  disabled={quantity <= 1}
+                >
+                  -
+                </button>
+                <span>{quantity}</span>
+                <button onClick={() => setQuantity(quantity + 1)}>+</button>
+              </div>
+              <button className='btn' onClick={() => addItem(el, quantity)}>
                 В корзину
               </button>
             </>
@@ -31,9 +43,7 @@ const Product = ({ el }) => {
         ) : (
           <span className={s.nope}>Нет в наличии</span>
         )}
-        {el.peculiarity && (
-          <span className={s.nope}>{el.peculiarity}</span>
-        )}
+        {el.peculiarity && <span className={s.nope}>{el.peculiarity}</span>}
 
         {/* <div className={s.flex}>
           <div className={s.row}>
@@ -46,8 +56,6 @@ const Product = ({ el }) => {
             Remove
           </button>
         </div> */}
-
-
       </div>
       <img className={s.img} src={el?.image} alt={el?.name} />
     </div>

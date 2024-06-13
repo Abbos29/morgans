@@ -28,7 +28,7 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px 0;
-  h6{
+  h6 {
     color: green;
     font-weight: 500;
   }
@@ -72,4 +72,24 @@
   width: max-content;
 
   order: -5;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+
+  button {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px !important;
+    background-color: black !important;
+    color: white !important;
+    margin-top: 0 !important;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
 }

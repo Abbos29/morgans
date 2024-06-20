@@ -1,5 +1,5 @@
 ## Hosting
-https://morgans-store.uz
+https://trueman.uz
 
 ## Adminka
 https://api.trueman.uz/admin/

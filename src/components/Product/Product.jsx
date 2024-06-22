@@ -4,6 +4,10 @@ import s from './Product.module.scss';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
 import Link from 'next/link';
+import useSWR from 'swr';
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
 
 const Product = ({ el }) => {
   const { getItem, addItem, removeItem } = useCart();
@@ -13,6 +17,10 @@ const Product = ({ el }) => {
 
   const maxQuantity = el?.quantity || 0;
   const disableIncrease = quantity >= maxQuantity;
+
+
+
+ 
 
   return (
     <div className={s.product}>

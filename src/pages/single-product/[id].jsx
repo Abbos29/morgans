@@ -5,6 +5,14 @@ import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
 import Head from 'next/head';
 import axios from 'axios';
+import Link from 'next/link';
+import useSWR from 'swr';
+import Product from '@/components/Product/Product';
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+
+
 
 const SingleProduct = ({ data }) => {
   const { getItem, addItem, removeItem } = useCart();
@@ -15,7 +23,23 @@ const SingleProduct = ({ data }) => {
   const maxQuantity = data?.quantity || 0;
   const disableIncrease = quantity >= maxQuantity;
 
+
+
+  // const url = `https://api.trueman.uz/products/${data?.id}/similar/?category_id=${data?.category?.id}`;
+  // const { dataCategory, isLoading } = useSWR(url, fetcher);
+
+  const url = data ? `https://api.trueman.uz/products/${data.id}/similar/?category_id=${data.category.id}` : null;
+  const { data: dataCategory, error } = useSWR(url, fetcher);
+
+
+
+
+  // console.log(dataCategory);
+
   return (
+
+
+
     <>
       <Head>
         <title>
@@ -64,7 +88,23 @@ const SingleProduct = ({ data }) => {
                 <img width={'70px'} src={data?.brand?.image} alt='' />
                 <h6>В наличии: {data?.quantity}</h6>
                 <h1>{data?.name}</h1>
-                <h2>{data?.description}</h2>
+                <div className={s.category_link}>
+                  <span>Категория: </span>
+                  <Link href={`/shop?categoryId=${data?.category?.id}`}>
+                    {data?.category?.name}
+                  </Link>
+
+                </div>
+                <h2>
+                  <b>Описание: </b>
+                  {data?.description}
+                </h2>
+
+                <h2>
+                  <b>Способ применения: </b>
+                  {/* {data?.description} */}
+                </h2>
+
                 <p>
                   {data?.price} <span>$</span>
                 </p>
@@ -108,6 +148,21 @@ const SingleProduct = ({ data }) => {
                 )}
               </div>
             </div>
+
+            <h2 className={s.big_title}>Похожие товары</h2>
+
+            {dataCategory?.results?.length ? (
+                <div className={s.grid}>
+                  {dataCategory?.results?.map((el, index) => (
+                    <Product key={index} el={el} />
+                  ))}
+                </div>
+              ) : (
+                <div className='not_found'>
+                  <h1>Ничего не найдено</h1>
+                </div>
+              )}
+
           </div>
         </section>
       </div>

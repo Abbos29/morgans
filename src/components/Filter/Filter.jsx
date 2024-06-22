@@ -70,7 +70,7 @@ const Filter = () => {
     router.push('/shop');
   };
 
-  console.log(category);
+  // console.log(category);
 
   return (
     <div className={s.filter}>

@@ -17,7 +17,7 @@
     // padding: clamp(3.125rem, 1.677rem + 6.1vw, 6.25rem);
     padding: 50px clamp(1.875rem, -0.152rem + 8.54vw, 6.25rem);
 
-    transition: all .3s;
+    transition: all 0.3s;
 
     animation: bg 35s infinite alternate-reverse linear;
 
@@ -29,10 +29,9 @@
 
     @media (max-width: 768px) {
         // background-size: contain !important;
-        
+
         // height: 600px;
     }
-    
 }
 
 .box {
@@ -45,13 +44,13 @@
         font-size: 13px;
         font-weight: 500;
         text-transform: uppercase;
-        
+
         letter-spacing: 2px;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         translate: 10px;
     }
 
-    h1{
+    h1 {
         font-weight: 700;
         // font-size: 100px;
         font-size: clamp(2.188rem, 0.305rem + 7.93vw, 6.25rem);
@@ -63,10 +62,7 @@
         line-height: 1.2;
         padding-bottom: 20px;
     }
-
 }
-
-
 
 @keyframes bg {
     0% {
@@ -92,5 +88,21 @@
     100% {
         background-image: url(/banner/ARM04172.webp);
         // background-size: 110%;
+    }
+}
+
+.reels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // grid-template-rows: 800px;
+    gap: 30px;
+
+    margin-top: 50px;
+
+    display: none;
+
+    iframe {
+        width: 100%;
+        height: 800px;
     }
 }

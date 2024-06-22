@@ -15,7 +15,40 @@ const Hero = () => {
                         <Link href={'/shop'} className="btn">Продукция</Link>
                     </div>
                 </div>
+
+
+                <div className={s.reels}>
+                    <iframe
+                        src="https://www.instagram.com/reel/C7EJZ6_M5wA/embed/"
+                        width="420px"
+                        height="700px"
+                        frameborder="0"
+                        allowfullscreen
+                        title="Instagram Reel"
+                    ></iframe>
+
+                    <iframe
+                        src="https://www.instagram.com/reel/C7EJZ6_M5wA/embed/"
+                        width="420px"
+                        height="700px"
+                        frameborder="0"
+                        allowfullscreen
+                        title="Instagram Reel"
+                    ></iframe>
+
+                    <iframe
+                        src="https://www.instagram.com/reel/C7EJZ6_M5wA/embed/"
+                        width="420px"
+                        height="700px"
+                        frameborder="0"
+                        allowfullscreen
+                        title="Instagram Reel"
+                    ></iframe>
+                </div>
+
+
             </div>
+
         </section>
     )
 }

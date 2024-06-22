@@ -8,7 +8,7 @@ import useSWR from 'swr';
 import Search from '../Search/Search';
 import { useRouter } from 'next/router';
 
-const API_TOKEN = 'https://api.trueman.uz/products/';
+const API_TOKEN = 'https://api.trueman.uz/products/?disable_pagination=true';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -216,11 +216,18 @@ const Header = () => {
                         items.map((el, id) => {
                           const priceCount = el?.quantity * el?.price;
                           total += priceCount;
-                          const productData = data?.results?.find(
-                            (product) => product.id === el.id
+                          
+                          // console.log(data);
+
+                          const productData = data?.find(
+                            (product) => product.id == el.id
                           );
-                          const maxQuantity = productData?.quantity || 0;
+
+                          const maxQuantity = productData?.quantity || 1;
                           const disableIncrease = el.quantity >= maxQuantity;
+
+                          // console.log(productData);
+
                           if (el?.quantity >= 1) {
                             return (
                               <div className={s.cart_item} key={el.id}>

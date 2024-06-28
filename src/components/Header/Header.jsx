@@ -124,6 +124,7 @@ const Header = () => {
       className={`${s.header} ${isScrolled ? 'xscroll' : ''}`}
       id='header'
     >
+      
       <div className='container'>
         <nav className={s.nav}>
           <Link className={`${s.logo}`} href='/'>

@@ -20,7 +20,7 @@ const WrapSec = () => {
 
                     <div className={s.blank}>
                         <Link target='_blank' href={'https://www.instagram.com/trmn.store/'}>
-                        <img src="./blank-insta.jpg" alt="instagram" />
+                        <img src="./blank-insta2.JPG" alt="instagram" />
                         </Link>
                     </div>
                 </div>

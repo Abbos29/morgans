@@ -22,8 +22,8 @@ const Hero = () => {
                         src="https://www.instagram.com/reel/C7EJZ6_M5wA/embed/"
                         width="420px"
                         height="700px"
-                        frameborder="0"
-                        allowfullscreen
+                        frameBorder="0"
+                        allowFullScreen
                         title="Instagram Reel"
                     ></iframe>
 
@@ -31,8 +31,8 @@ const Hero = () => {
                         src="https://www.instagram.com/reel/C7EJZ6_M5wA/embed/"
                         width="420px"
                         height="700px"
-                        frameborder="0"
-                        allowfullscreen
+                        frameBorder="0"
+                        allowFullScreen
                         title="Instagram Reel"
                     ></iframe>
 
@@ -40,8 +40,8 @@ const Hero = () => {
                         src="https://www.instagram.com/reel/C7EJZ6_M5wA/embed/"
                         width="420px"
                         height="700px"
-                        frameborder="0"
-                        allowfullscreen
+                        frameBorder="0"
+                        allowFullScreen
                         title="Instagram Reel"
                     ></iframe>
                 </div>

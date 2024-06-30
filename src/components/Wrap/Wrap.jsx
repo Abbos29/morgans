@@ -11,7 +11,11 @@ const Wrap = () => {
         <div className={s.wrapper}>
           {/* <Card id={7} /> */}
 
-          <img className={s.image} src='/mock-1.webp' alt='image' />
+          <div className={s.blank} style={{maxWidth: '350px'}}>
+            <Link target='_blank' href={'https://www.instagram.com/trmn.store/'}>
+              <img src="./blank-insta2.JPG" alt="instagram" />
+            </Link>
+          </div>
 
           <div className={s.box}>
             <b>Онлайн-магазин</b>

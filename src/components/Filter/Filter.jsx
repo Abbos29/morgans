@@ -44,6 +44,9 @@ const Filter = () => {
       ...router.query,
       categoryId: id,
     };
+    if (queryParams.page) {
+      queryParams.page = 1; // or delete queryParams.page;
+    }
     router.push({
       pathname: '/shop',
       query: queryParams,

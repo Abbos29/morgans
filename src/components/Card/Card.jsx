@@ -17,7 +17,7 @@ const Card = ({ id }) => {
         Помада для укладки Morgans Pomade Средняя фиксация / Средний блеск 100 г
       </Link>
       <Link href={`/single-product/${id}`} className={s.card_box}>
-        <b className={s.card_price}>27 $</b>
+        <b className={s.card_price}>27 UZS</b>
         <button className={s.card_add}>В корзину</button>
       </Link>
     </div>

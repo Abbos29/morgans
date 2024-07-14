@@ -32,7 +32,7 @@ const Footer = () => {
             <a style={{ fontFamily: 'sans-serif' }} href='tel:+998976868088'>
               +998 97 686 80 88
             </a>
-            <a href='mailto:admin@morgans.uz'>admin@trueman.uz</a>
+            <a href='mailto:Trmn.store.uz@gmail.com'>Trmn.store.uz@gmail.com</a>
             <p className={s.footer__address}>
               Ташкент, пр.
               Олой Бозори, 59/7

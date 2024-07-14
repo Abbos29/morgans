@@ -29,7 +29,7 @@ const Product = ({ el }) => {
         <Link href={`/single-product/${el?.id}`}>
           <h2>{el?.name}</h2>
         </Link>
-        <b>{el?.price} $</b>
+        <b>{el?.price} UZS</b>
         {el?.quantity >= 1 ? (
           isClient && !getItem(el?.id) ? (
             <>

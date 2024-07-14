@@ -247,7 +247,7 @@ const Header = () => {
                                   <p>{el.weight}</p>
                                   <b>
                                     {priceCount?.toLocaleString()}
-                                    <span> $</span>
+                                    <span> UZS</span>
                                   </b>
 
                                   <div className={s.flex}>
@@ -296,7 +296,7 @@ const Header = () => {
                   {isClient && (
                     <div className={s.cart_form}>
                       <b>Обшая сумма:</b>
-                      <h3>{total.toLocaleString()} $</h3>
+                      <h3>{total.toLocaleString()} UZS</h3>
                       <br />
                       {!isEmpty ? (
                         <form onSubmit={postTest}>

@@ -83,7 +83,7 @@ const Search = () => {
                       <img src={el?.image} alt={el?.name} />
                       <span>
                         <p>{el?.name}</p>
-                        <b>{el?.price.toLocaleString()} $</b>
+                        <b>{el?.price.toLocaleString()} UZS</b>
                       </span>
                     </Link>
                   );
